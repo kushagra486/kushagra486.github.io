@@ -1,8 +1,12 @@
 'use client';
 
+import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { DesktopIcon } from '@/components/os/DesktopIcon';
 import { Taskbar } from '@/components/os/Taskbar';
 import { WindowManager } from '@/components/os/WindowManager';
+import { Wallpaper } from '@/components/os/Wallpaper';
+import { BootScreen } from '@/components/os/BootScreen';
 import { AIMantram } from '@/components/apps/AIMantram';
 import { NeonAirDraw } from '@/components/apps/NeonAirDraw';
 import { SudhaVatika } from '@/components/apps/SudhaVatika';
@@ -18,10 +22,15 @@ const APPS = [
 
 export default function Home() {
   const windows = useDesktopStore((s) => s.windows);
+  const [booted, setBooted] = useState(false);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#0a1a2e] via-[#0f2740] to-[#040810]">
-      <div className="grid grid-cols-1 gap-2 p-4 sm:w-24">
+    <div className="relative min-h-screen overflow-hidden">
+      <AnimatePresence>{!booted && <BootScreen onDone={() => setBooted(true)} />}</AnimatePresence>
+
+      <Wallpaper />
+
+      <div className="relative z-10 flex flex-row flex-wrap gap-1 p-3 sm:flex-col sm:gap-2 sm:p-4 sm:w-24">
         {APPS.map((app) => (
           <DesktopIcon key={app.id} id={app.id} title={app.title} icon={app.icon} />
         ))}
