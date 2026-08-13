@@ -1,0 +1,39 @@
+name: Desktop OS CI
+
+on:
+  pull_request:
+    paths:
+      - "desktop-os/**"
+      - ".github/workflows/desktop-os-ci.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "desktop-os/**"
+      - ".github/workflows/desktop-os-ci.yml"
+
+defaults:
+  run:
+    working-directory: desktop-os
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: desktop-os/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
