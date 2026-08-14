@@ -27,7 +27,7 @@
 ![Status](https://img.shields.io/badge/Status-Open_to_Opportunities-00ff94?style=flat-square&logo=checkmarx&logoColor=white)
 ![Auto-Update](https://img.shields.io/badge/Repo_List-Auto--Synced_Daily-00e5ff?style=flat-square)
 ![Student](https://img.shields.io/badge/B.Tech_CSE_(Data_Science)-BBDITM_Lucknow_•_2024–2028-ffb800?style=flat-square)
-![Certs](https://img.shields.io/badge/Certifications-11_Earned-b44aff?style=flat-square)
+![Certs](https://img.shields.io/badge/Certifications-12_Earned-b44aff?style=flat-square)
 
 </div>
 
@@ -42,7 +42,7 @@
   "education": "B.Tech CSE (Data Science) @ BBDITM, Lucknow (2024–2028)",
   "cgpa": { "sem1": 7.0, "sem2": 7.4 },
   "location": "Prayagraj, Uttar Pradesh, India",
-  "certifications": 11,
+  "certifications": 12,
   "forage_simulations": 6,
   "companies": ["JPMorgan Chase", "Quantium", "Tata", "Deloitte Australia", "HPE"],
   "projects": "15+",
@@ -344,6 +344,7 @@ Real certificate images for these are viewable in the portfolio's [Certification
 |💻 Software Engineering Job Simulation    |HPE (Forage)                     |2026|
 |🤖 Generative AI Fundamentals             |Alison                           |2026|
 |🔧 IT Support Certificate                 |Data Expert Technical Institution|2024|
+|🧠 Generative AI Workshop — 5 Day Workshop|Kaggle & Google Colab            |2026|
 
 </div>
 

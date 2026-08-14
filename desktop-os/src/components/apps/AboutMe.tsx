@@ -1,4 +1,4 @@
-import { profile, skills } from '@/lib/portfolioData';
+import { expertise, profile, skills } from '@/lib/portfolioData';
 
 export function AboutMe() {
   return (
@@ -37,6 +37,26 @@ export function AboutMe() {
         </a>
       </div>
 
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-white/40">Core Expertise</p>
+        <div className="space-y-1.5">
+          {expertise.map((item) => (
+            <div key={item.label}>
+              <div className="flex items-center justify-between text-[11px] text-white/70">
+                <span>{item.label}</span>
+                <span className="text-white/40">{item.percent}%</span>
+              </div>
+              <div className="mt-0.5 h-1.5 overflow-hidden rounded-full bg-white/10">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-blue-500"
+                  style={{ width: `${item.percent}%` }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="space-y-2">
         {Object.entries(skills).map(([category, list]) => (
           <div key={category}>
@@ -53,6 +73,15 @@ export function AboutMe() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div>
+        <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-white/40">Open to Roles</p>
+        <ul className="list-disc space-y-0.5 pl-4 text-xs text-white/70">
+          {profile.openToRoles.map((role) => (
+            <li key={role}>{role}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

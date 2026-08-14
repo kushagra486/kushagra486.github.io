@@ -10,7 +10,27 @@ export const profile = {
     email: 'mailto:kushagra.gupta.ald@gmail.com',
     portfolio: 'https://kushagra486.github.io',
   },
+  openToRoles: [
+    'AI Engineer / AI-ML Engineer',
+    'Generative AI Developer',
+    'Data Scientist / Data Analyst',
+    'AI Automation Developer',
+    'Machine Learning Engineer',
+  ],
 };
+
+export const expertise: { label: string; percent: number }[] = [
+  { label: 'Artificial Intelligence', percent: 95 },
+  { label: 'Machine Learning', percent: 93 },
+  { label: 'Python Programming', percent: 94 },
+  { label: 'Data Science & Analytics', percent: 92 },
+  { label: 'Generative AI / LLMs', percent: 90 },
+  { label: 'SQL & Database Systems', percent: 90 },
+  { label: 'Data Visualization (Power BI)', percent: 90 },
+  { label: 'Agentic AI & AI Agents', percent: 88 },
+  { label: 'AI Automation', percent: 88 },
+  { label: 'Full-Stack Development', percent: 85 },
+];
 
 export interface LiveApp {
   slug: string;
@@ -41,6 +61,7 @@ export const skills = {
     'HuggingFace',
     'LangChain',
     'Claude API',
+    'OpenAI',
     'OpenRouter',
     'Groq',
   ],
@@ -298,4 +319,5 @@ export const certifications: Certification[] = [
   { slug: 'hpe-software-engineering', name: 'Software Engineering Job Simulation', issuer: 'HPE (Forage)', year: '2026', imageUrl: '/certs/hpe-software-engineering.png' },
   { slug: 'alison-genai', name: 'Generative AI Fundamentals', issuer: 'Alison', year: '2026', imageUrl: null },
   { slug: 'it-support', name: 'IT Support Certificate', issuer: 'Data Expert Technical Institution', year: '2024', imageUrl: null },
+  { slug: 'genai-workshop', name: 'Generative AI Workshop — 5 Day Workshop', issuer: 'Kaggle & Google Colab', year: '2026', imageUrl: null },
 ];
