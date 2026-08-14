@@ -14,7 +14,7 @@
 
 <!-- PROFILE BADGES -->
 
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-kushagra486.github.io-00e5ff?style=for-the-badge&logoColor=white)](https://kushagra486.github.io)
+[![Portfolio](https://img.shields.io/badge/🖥️_Portfolio-Kushagra_OS_(Desktop)-00e5ff?style=for-the-badge&logoColor=white)](https://kushagra486.github.io)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Kushagra_Gupta-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kushagra-gupta-18b4151ba/)
 [![GitHub](https://img.shields.io/badge/GitHub-kushagra486-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kushagra486)
 [![Email](https://img.shields.io/badge/Email-kushagra.gupta.ald%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kushagra.gupta.ald@gmail.com)
@@ -25,9 +25,9 @@
 <!-- STATUS BADGES -->
 
 ![Status](https://img.shields.io/badge/Status-Open_to_Opportunities-00ff94?style=flat-square&logo=checkmarx&logoColor=white)
-![Auto-Update](https://img.shields.io/badge/Portfolio-Auto--Updates_from_GitHub_API-00e5ff?style=flat-square)
+![Auto-Update](https://img.shields.io/badge/Repo_List-Auto--Synced_Daily-00e5ff?style=flat-square)
 ![Student](https://img.shields.io/badge/B.Tech_CSE_(Data_Science)-BBDITM_Lucknow_•_2024–2028-ffb800?style=flat-square)
-![Certs](https://img.shields.io/badge/Certifications-10_Earned-b44aff?style=flat-square)
+![Certs](https://img.shields.io/badge/Certifications-11_Earned-b44aff?style=flat-square)
 
 </div>
 
@@ -42,18 +42,34 @@
   "education": "B.Tech CSE (Data Science) @ BBDITM, Lucknow (2024–2028)",
   "cgpa": { "sem1": 7.0, "sem2": 7.4 },
   "location": "Prayagraj, Uttar Pradesh, India",
-  "certifications": 10,
-  "forage_simulations": 5,
-  "companies": ["JPMorgan Chase", "Quantium", "Tata", "Deloitte Australia"],
-  "projects": 9,
+  "certifications": 11,
+  "forage_simulations": 6,
+  "companies": ["JPMorgan Chase", "Quantium", "Tata", "Deloitte Australia", "HPE"],
+  "projects": "15+",
   "focus": ["AI/ML", "Data Analytics", "LLM Integration", "Computer Vision"],
-  "currently_building": "AI-powered products with Claude API, LLMs & React",
+  "currently_building": "AI-powered products with Claude API, Groq, LLMs & Next.js",
   "superpower": "Shipping production apps using 100% free-tier infrastructure",
-  "portfolio": "kushagra486.github.io (auto-updates from GitHub API)"
+  "portfolio": "kushagra486.github.io — an interactive desktop-OS-style portfolio"
 }
 ```
 
-I’m a results-driven developer who builds **AI-powered, data-driven applications end-to-end** — from raw data ingestion and ML modelling to production deployment on cloud infrastructure. My work spans LLM integration, computer vision, embedded systems, retail analytics, and developer tooling. Every project I build is deployed, live, and production-ready.
+I'm a results-driven developer who builds **AI-powered, data-driven applications end-to-end** — from raw data ingestion and ML modelling to production deployment on cloud infrastructure. My work spans LLM integration, computer vision, embedded systems, retail analytics, and developer tooling. Every project I build is deployed, live, and production-ready.
+
+-----
+
+## 🖥️ The Portfolio Itself Is a Project
+
+[kushagra486.github.io](https://kushagra486.github.io) isn't a static page — it's **"Kushagra OS"**, a desktop-OS-style Next.js app with:
+
+- 🪟 **Draggable, focusable windows** with a real taskbar and z-index-correct stacking
+- 🚀 **Live Apps dashboard** — logo tiles that open my deployed apps *embedded live*, right inside the desktop
+- 💬 **AI Assistant** — a rule-based chatbot today, with a documented hook to wire in a real LLM
+- 🎮 **5 built-in games** (Snake, Memory Match, Tic-Tac-Toe, 2048, Rock Paper Scissors), each with a "How to play" guide and saved high scores
+- 📌 **Widgets board** (macOS/Windows-11 style) — live clock, calendar, weather, GitHub activity, and achievement stats
+- 🏅 **Certifications gallery** with a lightbox for the real certificate images
+- 🗂️ **Projects window** — every project below, live, with separate "Live" and "Code" links
+
+Source lives in [`desktop-os/`](./desktop-os) in this repo, deployed to GitHub Pages as a static export on every push to `main`.
 
 -----
 
@@ -61,6 +77,21 @@ I’m a results-driven developer who builds **AI-powered, data-driven applicatio
 
 <table>
 <tr>
+<td width="50%" valign="top">
+
+### 🛒 [Bharat Inventory Manager AI](https://bharat-inventory-manager.vercel.app)
+
+**AI-Powered Retail Platform — Owner, Store & Delivery**
+
+Three connected apps on one Supabase backend: an owner dashboard, a customer marketplace, and a delivery-partner platform, all sharing one live database.
+
+- 🔒 Row-Level Security enforced at the database layer
+- ⚡ Supabase Realtime — one order updates all three apps instantly
+- 🤖 Groq (Llama 3.3) powers forecasts and restock suggestions
+
+`Next.js 16` `TypeScript` `Supabase` `Groq` `Vercel`
+
+</td>
 <td width="50%" valign="top">
 
 ### 🤖 [ResumeAI](https://kushagra486.github.io/resumeai/)
@@ -71,27 +102,41 @@ Fully client-side resume builder powered by **Claude API** and GitHub REST API. 
 
 - 🧠 Claude API rewrites summaries & bullets
 - 📊 8-category ATS compatibility scorer
-- 🎯 JD keyword matcher
-- 📋 5 resume templates
-- 🔗 GitHub profile/repo import
+- 🎯 JD keyword matcher, 5 resume templates
 
 `Claude API` `GitHub API` `Vanilla JS` `GitHub Pages`
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
-### 🇮🇳 [Bharat AI Assistant V1](https://github.com/kushagra486/Bharat-AI-Assistant-V1)
+### ⚖️ [Nyay Bharat](https://nyaya-agent-git-main-kushagra486s-projects.vercel.app)
 
-**Multi-LLM AI Chatbot Platform**
+**India's AI Legal Intelligence Platform**
 
-Full-stack AI chatbot integrating multiple LLMs via **OpenRouter API** with serverless deployment on Vercel.
+Bridges India's old criminal codes (IPC/CrPC/Evidence Act) and new ones (BNS/BNSS/BSA) with AI-assisted research, drafting, and document review.
 
-- ⚡ Real-time AI responses
-- 🔒 Secure serverless API layer
-- 📱 Mobile-responsive UI
-- 🌐 100% free-tier infra
+- 🔍 AI-assisted legal research & document review
+- 👩‍⚖️ Lawyer discovery + live legal news feed
+- 💯 Zero-cost, fully open-source stack
 
-`React` `Next.js` `OpenRouter API` `Vercel`
+`Next.js` `TypeScript` `Supabase` `Groq`
+
+</td>
+<td width="50%" valign="top">
+
+### 📰 [Bharat News AI](https://kushagra486.github.io/bharat-news-ai/)
+
+**Live AI-Powered Daily Intelligence for India**
+
+4 live news sources merged and deduped, with an Instagram-style feed and per-article AI analysis.
+
+- 🧠 Groq Llama 3.3 70B per-article summaries
+- 🇮🇳 India-focused feed, stories viewer
+- 💬 AI assistant in news-grounded and general chat modes
+
+`Groq` `Supabase Auth` `JavaScript`
 
 </td>
 </tr>
@@ -106,30 +151,11 @@ Production ML pipeline for detecting suspicious web traffic using dual-model arc
 
 - 🔍 IsolationForest (unsupervised anomaly detection)
 - 🌲 RandomForest (supervised classification)
-- 📡 FastAPI prediction endpoint
 - 🐳 Docker + GitHub Actions CI/CD
 
 `Python` `Scikit-learn` `FastAPI` `Streamlit` `Docker`
 
 </td>
-<td width="50%" valign="top">
-
-### 🛒 [Supermart Grocery Analytics](https://github.com/kushagra486/supermart-grocery-sales-analytics)
-
-**Retail ML Pipeline — 250K+ Records**
-
-End-to-end analytics and ML pipeline from raw CSV to deployed prediction API.
-
-- 📈 EDA + feature engineering
-- 🌲 Random Forest & regression models
-- 📊 Streamlit dashboard
-- 🐳 Docker containerised
-
-`Python` `Pandas` `Scikit-learn` `Streamlit` `FastAPI`
-
-</td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
 ### 👁️ [SENTIENT LENS](https://kushagra486.github.io/sentient-lens/)
@@ -140,12 +166,13 @@ Real-time object detection — 100% in-browser, $0 cost, no backend.
 
 - 🧠 TensorFlow.js COCO-SSD
 - 🗣️ AI voice personality (50+ responses)
-- 💾 IndexedDB persistence
-- 🎙️ Bidirectional voice I/O
+- 💾 IndexedDB persistence, bidirectional voice I/O
 
 `TensorFlow.js` `COCO-SSD` `IndexedDB` `Web Speech API`
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### 🖐️ [Neon Air Draw Ultra PRO](https://kushagra486.github.io/neon-air-paint-/)
@@ -157,47 +184,35 @@ Draw in the air using hand gestures — Google MediaPipe for millimetric trackin
 - ✋ 5 gesture modes (draw, rainbow, erase, hover, Z-depth)
 - 🌈 HSL rainbow + particle physics
 - 📸 Persistent gallery + PNG export
-- 🌐 GitHub Pages, $0 cost
 
 `MediaPipe` `Canvas API` `JavaScript`
 
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 
-### 🤖 [J.A.R.V.I.S. Agent System](https://github.com/kushagra486)
+### 📄 [Thesis AI](https://kushagra486.github.io/thesis-ai/)
 
-**Cinematic AI Voice Assistant**
+**AI-Powered Publication-Grade Research Paper Generator**
 
-Marvel-inspired AI assistant with real-time voice, face tracking, and live weather.
+Generates publication-grade research papers with Claude AI, deployed as a static site on GitHub Pages.
 
-- 🎙️ Full voice I/O (Web Speech API)
-- 👁️ TensorFlow BlazeFace face tracking
-- 🌤️ Live weather + geolocation
-- 🔒 Serverless API keys via Vercel
-
-`Groq API` `OpenRouter` `TensorFlow.js` `Vercel`
-
-</td>
-<td width="50%" valign="top">
-
-### 🦯 [Blind Assist Bot](https://github.com/kushagra486/blind-assist-bot)
-
-**Autonomous Obstacle Detection Robot**
-
-Self-moving assistive robot using Arduino + ultrasonic sensors for real-time navigation.
-
-- 📡 Multi-directional ultrasonic sensing
-- ⚙️ Real-time C++ motor control firmware
-- 🔄 Sensor fusion for autonomous navigation
-- 🛠️ L298N motor driver integration
-
-`C++` `Arduino Uno` `HC-SR04` `L298N`
+`React` `Claude API` `GitHub Pages`
 
 </td>
 </tr>
 </table>
+
+**More projects:** [Bharat AI Assistant V1](https://github.com/kushagra486/Bharat-AI-Assistant-V1) · [Supermart Grocery Analytics](https://github.com/kushagra486/supermart-grocery-sales-analytics) · [J.A.R.V.I.S. Agent System](https://github.com/kushagra486/jarvis) · [Expiry Dashboard](https://github.com/kushagra486/Bharat-Inventory) · [GitRep](https://github.com/kushagra486/GitRep) · [Blind Assist Bot](https://github.com/kushagra486/blind-assist-bot) · [GitHub Activity Bot](https://github.com/kushagra486/github-activity-bot)
+
+See all of these live, with working "Live" and "Code" links, in the [Projects window on the portfolio](https://kushagra486.github.io).
+
+-----
+
+## 📦 All Public Repositories (auto-synced)
+
+<!-- AUTO-REPOS:START -->
+_Synced automatically from GitHub — this section refreshes daily via [`.github/workflows/sync-repos.yml`](.github/workflows/sync-repos.yml)._
+<!-- AUTO-REPOS:END -->
 
 -----
 
@@ -275,12 +290,15 @@ Self-moving assistive robot using Arduino + ultrasonic sensors for real-time nav
 |🔵|**Tata**                |GenAI Powered Data Analytics Simulation|Apr 2026 |Risk profiling, AI delinquency prediction, collections strategy|
 |🔵|**Tata**                |Cybersecurity Analyst Simulation       |Apr 2026 |IAM fundamentals, strategy assessment, custom IAM solutions    |
 |🟢|**Deloitte Australia**  |Data Analytics Job Simulation          |Nov 2025 |Tableau dashboards, Excel analytics, executive presentation    |
+|🟩|**HPE**                 |Software Engineering Job Simulation    |Aug 2026 |RESTful web service proposal & build, data upload, unit tests  |
 
 -----
 
 ## 🏆 Certifications
 
 <div align="center">
+
+Real certificate images for these are viewable in the portfolio's [Certifications window](https://kushagra486.github.io) (click any cert for a lightbox).
 
 ### ☁️ Amazon Web Services — June 2026
 
@@ -299,6 +317,7 @@ Self-moving assistive robot using Arduino + ultrasonic sensors for real-time nav
 |🛡️ Cybersecurity Analyst Simulation       |Tata (Forage)                    |2026|
 |📊 Data Analytics Job Simulation          |Quantium (Forage)                |2026|
 |📊 Data Analytics Job Simulation          |Deloitte Australia (Forage)      |2025|
+|💻 Software Engineering Job Simulation    |HPE (Forage)                     |2026|
 |🤖 Generative AI Fundamentals             |Alison                           |2026|
 |🔧 IT Support Certificate                 |Data Expert Technical Institution|2024|
 
@@ -329,12 +348,12 @@ Self-moving assistive robot using Arduino + ultrasonic sensors for real-time nav
 
 ```
 ✅  3 AWS Certifications earned (Generative AI, ML Engineering, Prompt Engineering)
-✅  5 Forage job simulations completed (JPMorgan Chase, Quantium, Tata x2, Deloitte)
-✅  9 production projects deployed
-✅  ResumeAI — AI resume builder with Claude API integration shipped
+✅  6 Forage job simulations completed (JPMorgan Chase, Quantium, Tata x2, Deloitte, HPE)
+✅  15+ projects deployed, all live and linked from the portfolio
+✅  Kushagra OS — desktop-style portfolio with AI assistant, games, and a live app launcher
 🔄  Building toward AWS ML Engineer Associate certification
+🔄  Wiring a real Groq-backed reply into the portfolio's AI Assistant
 🔄  Exploring RAG pipelines and multi-agent AI architectures
-🔄  Deepening Power BI and advanced SQL analytics skills
 🎯  Target: AI/ML internship in data science or full-stack AI role
 🎯  Contribute to open-source ML/LLM tooling projects
 ```
@@ -344,28 +363,30 @@ Self-moving assistive robot using Arduino + ultrasonic sensors for real-time nav
 ## 🌐 Portfolio Architecture
 
 ```
-┌─────────────────────────────────────────────────────┐
-│              kushagra486.github.io                  │
-│                  HOW IT WORKS                       │
-│                                                     │
-│   Push a new repo to GitHub                         │
-│              ↓                                      │
-│   Visitor loads portfolio                           │
-│              ↓                                      │
-│   GitHub API fetches ALL public repos               │
-│              ↓                                      │
-│   Project cards auto-generate with:                 │
-│   • Name, description, language, stack tags         │
-│   • Stars, forks, created/updated dates             │
-│   • Direct links to code & live demos               │
-│   • Language filter buttons                         │
-│              ↓                                      │
-│   Stats bar updates: repos • languages • stars      │
-│   Certifications gallery: 10 certs with lightbox    │
-└─────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│                  kushagra486.github.io                    │
+│                    "Kushagra OS"                          │
+│                                                            │
+│   Next.js 16 desktop shell (Zustand window engine,        │
+│   Framer Motion) statically exported and deployed to      │
+│   GitHub Pages on every push to main                      │
+│                                                            │
+│   Desktop apps:                                           │
+│   • About Me · Projects · Certifications (with lightbox)  │
+│   • Live Apps dashboard → embeds real deployed apps        │
+│   • AI Assistant (rule-based, Groq hook ready)             │
+│   • 5 games with how-to-play guides + saved high scores   │
+│   • Widgets board: clock, calendar, weather, GitHub        │
+│     activity, achievements                                 │
+│                                                            │
+│   Auto-updating pieces:                                    │
+│   • "Live GitHub Feed" window fetches your latest repos    │
+│     client-side, live, every page load                     │
+│   • This README's repo table is regenerated daily by       │
+│     .github/workflows/sync-repos.yml — new public repo     │
+│     shows up here within 24h, no manual edit needed         │
+└───────────────────────────────────────────────────────────┘
 ```
-
-**Zero manual updates ever needed.** New repo → appears automatically.
 
 -----
 
@@ -399,6 +420,6 @@ Self-moving assistive robot using Arduino + ultrasonic sensors for real-time nav
 **Built with ❤️ and ☕ by [Kushagra Gupta](https://github.com/kushagra486)**
 
 ![Visitors](https://komarev.com/ghpvc/?username=kushagra486&color=00e5ff&style=for-the-badge&label=PROFILE+VISITORS)
-![Last Updated](https://img.shields.io/badge/Last_Updated-June_2026-00e5ff?style=for-the-badge)
+![Last Updated](https://img.shields.io/badge/Last_Updated-August_2026-00e5ff?style=for-the-badge)
 
 </div>
