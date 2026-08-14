@@ -1,4 +1,4 @@
-import { profile, projects, skills } from '@/lib/portfolioData';
+import { certifications, profile, projects, skills } from '@/lib/portfolioData';
 
 const allSkills = Object.values(skills).flat();
 
@@ -23,7 +23,7 @@ const rules: Rule[] = [
   },
   {
     test: /\b(certif|aws|credential)\b/i,
-    reply: () => `10 certifications so far, including 3 AWS credentials (Generative AI, ML Engineering, Prompt Engineering). Check the "Certifications" window for the full list.`,
+    reply: () => `${certifications.length} certifications so far, including 3 AWS credentials (Generative AI, ML Engineering, Prompt Engineering). Check the "Certifications" window for the full list.`,
   },
   {
     test: /\b(contact|email|reach|hire|linkedin|github)\b/i,

@@ -165,14 +165,15 @@ export interface Certification {
 }
 
 export const certifications: Certification[] = [
-  { slug: 'aws-genai', name: 'Introduction to Generative AI – Art of the Possible', issuer: 'AWS Training & Certification', year: '2026', imageUrl: null },
-  { slug: 'aws-ml-engineer', name: 'AWS ML Engineer Associate Curriculum Overview', issuer: 'AWS Training & Certification', year: '2026', imageUrl: null },
-  { slug: 'aws-prompt-engineering', name: 'Foundations of Prompt Engineering', issuer: 'AWS Training & Certification', year: '2026', imageUrl: null },
-  { slug: 'jpmorgan-quant-research', name: 'Quantitative Research Job Simulation', issuer: 'JPMorgan Chase & Co. (Forage)', year: '2026', imageUrl: null },
-  { slug: 'tata-genai-analytics', name: 'GenAI Powered Data Analytics Simulation', issuer: 'Tata (Forage)', year: '2026', imageUrl: null },
-  { slug: 'tata-cybersecurity', name: 'Cybersecurity Analyst Simulation', issuer: 'Tata (Forage)', year: '2026', imageUrl: null },
-  { slug: 'quantium-data-analytics', name: 'Data Analytics Job Simulation', issuer: 'Quantium (Forage)', year: '2026', imageUrl: null },
-  { slug: 'deloitte-data-analytics', name: 'Data Analytics Job Simulation', issuer: 'Deloitte Australia (Forage)', year: '2025', imageUrl: null },
+  { slug: 'aws-genai', name: 'Introduction to Generative AI – Art of the Possible', issuer: 'AWS Training & Certification', year: '2026', imageUrl: '/certs/aws-genai.png' },
+  { slug: 'aws-ml-engineer', name: 'AWS ML Engineer Associate Curriculum Overview', issuer: 'AWS Training & Certification', year: '2026', imageUrl: '/certs/aws-ml-engineer.png' },
+  { slug: 'aws-prompt-engineering', name: 'Foundations of Prompt Engineering', issuer: 'AWS Training & Certification', year: '2026', imageUrl: '/certs/aws-prompt-engineering.png' },
+  { slug: 'jpmorgan-quant-research', name: 'Quantitative Research Job Simulation', issuer: 'JPMorgan Chase & Co. (Forage)', year: '2026', imageUrl: '/certs/jpmorgan-quant-research.jpg' },
+  { slug: 'tata-genai-analytics', name: 'GenAI Powered Data Analytics Simulation', issuer: 'Tata (Forage)', year: '2026', imageUrl: '/certs/tata-genai-analytics.jpg' },
+  { slug: 'tata-cybersecurity', name: 'Cybersecurity Analyst Simulation', issuer: 'Tata (Forage)', year: '2026', imageUrl: '/certs/tata-cybersecurity.jpg' },
+  { slug: 'quantium-data-analytics', name: 'Data Analytics Job Simulation', issuer: 'Quantium (Forage)', year: '2026', imageUrl: '/certs/quantium-data-analytics.jpg' },
+  { slug: 'deloitte-data-analytics', name: 'Data Analytics Job Simulation', issuer: 'Deloitte Australia (Forage)', year: '2025', imageUrl: '/certs/deloitte-data-analytics.jpg' },
+  { slug: 'hpe-software-engineering', name: 'Software Engineering Job Simulation', issuer: 'HPE (Forage)', year: '2026', imageUrl: '/certs/hpe-software-engineering.png' },
   { slug: 'alison-genai', name: 'Generative AI Fundamentals', issuer: 'Alison', year: '2026', imageUrl: null },
   { slug: 'it-support', name: 'IT Support Certificate', issuer: 'Data Expert Technical Institution', year: '2024', imageUrl: null },
 ];
