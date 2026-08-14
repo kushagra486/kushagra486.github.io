@@ -8,6 +8,7 @@ import { WindowManager } from '@/components/os/WindowManager';
 import { Wallpaper } from '@/components/os/Wallpaper';
 import { BootScreen } from '@/components/os/BootScreen';
 import { GreetingPopup } from '@/components/os/GreetingPopup';
+import { WidgetsPanel } from '@/components/os/WidgetsPanel';
 import { AboutMe } from '@/components/apps/AboutMe';
 import { Projects } from '@/components/apps/Projects';
 import { Certifications } from '@/components/apps/Certifications';
@@ -35,6 +36,7 @@ export default function Home() {
   const windows = useDesktopStore((s) => s.windows);
   const openWindow = useDesktopStore((s) => s.openWindow);
   const [booted, setBooted] = useState(false);
+  const [widgetsOpen, setWidgetsOpen] = useState(false);
   const windowsContainerRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -70,7 +72,9 @@ export default function Home() {
 
       {booted && <GreetingPopup onOpenAssistant={() => openWindow('ai-assistant', 'AI Assistant')} />}
 
-      <Taskbar />
+      <WidgetsPanel open={widgetsOpen} onClose={() => setWidgetsOpen(false)} />
+
+      <Taskbar onToggleWidgets={() => setWidgetsOpen((v) => !v)} />
     </div>
   );
 }
