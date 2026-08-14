@@ -12,14 +12,26 @@ export function Projects() {
               </p>
               <p className="text-xs text-cyan-300/80">{project.tagline}</p>
             </div>
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noreferrer"
-              className="shrink-0 rounded-md bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white transition hover:bg-white/20"
-            >
-              Open ↗
-            </a>
+            <div className="flex shrink-0 gap-1.5">
+              {project.url && (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-md bg-cyan-400/90 px-2.5 py-1 text-[11px] font-medium text-black transition hover:bg-cyan-300"
+                >
+                  Live ↗
+                </a>
+              )}
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white transition hover:bg-white/20"
+              >
+                Code ↗
+              </a>
+            </div>
           </div>
           <ul className="mt-2 list-disc space-y-0.5 pl-4 text-xs text-white/70">
             {project.description.map((line, i) => (
