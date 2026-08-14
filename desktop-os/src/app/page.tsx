@@ -9,6 +9,7 @@ import { Wallpaper } from '@/components/os/Wallpaper';
 import { BootScreen } from '@/components/os/BootScreen';
 import { GreetingPopup } from '@/components/os/GreetingPopup';
 import { WidgetsPanel } from '@/components/os/WidgetsPanel';
+import { DesktopWidgets } from '@/components/os/DesktopWidgets';
 import { AboutMe } from '@/components/apps/AboutMe';
 import { Projects } from '@/components/apps/Projects';
 import { Certifications } from '@/components/apps/Certifications';
@@ -16,6 +17,8 @@ import { AIAssistant } from '@/components/apps/AIAssistant';
 import { Games } from '@/components/apps/Games';
 import { AppDashboard } from '@/components/apps/AppDashboard';
 import { AppViewer } from '@/components/apps/AppViewer';
+import { ResumeViewer } from '@/components/apps/ResumeViewer';
+import { CVViewer } from '@/components/apps/CVViewer';
 import { AIMantram } from '@/components/apps/AIMantram';
 import { NeonAirDraw } from '@/components/apps/NeonAirDraw';
 import { SudhaVatika } from '@/components/apps/SudhaVatika';
@@ -24,6 +27,8 @@ import { useDesktopStore } from '@/store/useDesktopStore';
 
 const APPS = [
   { id: 'about-me', title: 'About Me', icon: '🧑‍💻', Component: AboutMe },
+  { id: 'resume', title: 'Resume', icon: '📄', Component: ResumeViewer },
+  { id: 'cv', title: 'CV', icon: '📋', Component: CVViewer },
   { id: 'projects', title: 'Projects', icon: '🗂️', Component: Projects },
   { id: 'app-dashboard', title: 'Live Apps', icon: '🚀', Component: AppDashboard },
   { id: 'certifications', title: 'Certifications', icon: '🏅', Component: Certifications },
@@ -56,6 +61,8 @@ export default function Home() {
           <DesktopIcon key={app.id} id={app.id} title={app.title} icon={app.icon} />
         ))}
       </div>
+
+      <DesktopWidgets />
 
       <div ref={windowsContainerRef} className="pointer-events-none fixed inset-0 z-20">
         {[...APPS, ...WINDOW_ONLY_APPS].map(({ id, Component }) => {
