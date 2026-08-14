@@ -8,18 +8,26 @@ export interface DesktopWindow {
   zIndex: number;
 }
 
+export interface ActiveApp {
+  name: string;
+  url: string;
+}
+
 interface DesktopState {
   windows: DesktopWindow[];
   activeZIndex: number;
+  activeApp: ActiveApp | null;
   openWindow: (id: string, title: string) => void;
   closeWindow: (id: string) => void;
   minimizeWindow: (id: string) => void;
   focusWindow: (id: string) => void;
+  openApp: (app: ActiveApp) => void;
 }
 
-export const useDesktopStore = create<DesktopState>((set) => ({
+export const useDesktopStore = create<DesktopState>((set, get) => ({
   windows: [],
   activeZIndex: 10,
+  activeApp: null,
 
   openWindow: (id, title) =>
     set((state) => {
@@ -28,7 +36,7 @@ export const useDesktopStore = create<DesktopState>((set) => ({
         return {
           windows: state.windows.map((w) =>
             w.id === id
-              ? { ...w, isOpen: true, isMinimized: false, zIndex: state.activeZIndex + 1 }
+              ? { ...w, title, isOpen: true, isMinimized: false, zIndex: state.activeZIndex + 1 }
               : w
           ),
           activeZIndex: state.activeZIndex + 1,
@@ -60,4 +68,9 @@ export const useDesktopStore = create<DesktopState>((set) => ({
       ),
       activeZIndex: state.activeZIndex + 1,
     })),
+
+  openApp: (app) => {
+    set({ activeApp: app });
+    get().openWindow('app-viewer', app.name);
+  },
 }));

@@ -12,6 +12,26 @@ export const profile = {
   },
 };
 
+export interface LiveApp {
+  slug: string;
+  name: string;
+  emoji: string;
+  url: string;
+}
+
+/** Live, embeddable apps shown as launchable tiles in the App Dashboard. */
+export const liveApps: LiveApp[] = [
+  { slug: 'bim-owner', name: 'Bharat Inventory Manager', emoji: '🛒', url: 'https://bharat-inventory-manager.vercel.app' },
+  { slug: 'bim-shop', name: 'Bharat Store', emoji: '🛍️', url: 'https://bharat-inventory-manager.vercel.app/shop' },
+  { slug: 'bim-delivery', name: 'Bharat Door Droppers', emoji: '🛵', url: 'https://bharat-inventory-manager.vercel.app/delivery' },
+  { slug: 'resumeai', name: 'ResumeAI', emoji: '🤖', url: 'https://kushagra486.github.io/resumeai/' },
+  { slug: 'nyaya-agent', name: 'Nyay Bharat', emoji: '⚖️', url: 'https://nyaya-agent-git-main-kushagra486s-projects.vercel.app' },
+  { slug: 'bharat-news-ai', name: 'Bharat News AI', emoji: '📰', url: 'https://kushagra486.github.io/bharat-news-ai/' },
+  { slug: 'thesis-ai', name: 'Thesis AI', emoji: '📄', url: 'https://kushagra486.github.io/thesis-ai/' },
+  { slug: 'sentient-lens', name: 'SENTIENT LENS', emoji: '👁️', url: 'https://kushagra486.github.io/sentient-lens/' },
+  { slug: 'neon-air-draw', name: 'Neon Air Draw', emoji: '🖐️', url: 'https://kushagra486.github.io/neon-air-paint-/' },
+];
+
 export const skills = {
   Languages: ['Python', 'JavaScript', 'TypeScript', 'Java', 'C++', 'C', 'SQL'],
   'AI / ML / GenAI': [

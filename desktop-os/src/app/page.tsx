@@ -14,6 +14,8 @@ import { Projects } from '@/components/apps/Projects';
 import { Certifications } from '@/components/apps/Certifications';
 import { AIAssistant } from '@/components/apps/AIAssistant';
 import { Games } from '@/components/apps/Games';
+import { AppDashboard } from '@/components/apps/AppDashboard';
+import { AppViewer } from '@/components/apps/AppViewer';
 import { AIMantram } from '@/components/apps/AIMantram';
 import { NeonAirDraw } from '@/components/apps/NeonAirDraw';
 import { SudhaVatika } from '@/components/apps/SudhaVatika';
@@ -23,6 +25,7 @@ import { useDesktopStore } from '@/store/useDesktopStore';
 const APPS = [
   { id: 'about-me', title: 'About Me', icon: '🧑‍💻', Component: AboutMe },
   { id: 'projects', title: 'Projects', icon: '🗂️', Component: Projects },
+  { id: 'app-dashboard', title: 'Live Apps', icon: '🚀', Component: AppDashboard },
   { id: 'certifications', title: 'Certifications', icon: '🏅', Component: Certifications },
   { id: 'ai-assistant', title: 'AI Assistant', icon: '💬', Component: AIAssistant },
   { id: 'games', title: 'Games', icon: '🎮', Component: Games },
@@ -31,6 +34,9 @@ const APPS = [
   { id: 'sudha-vatika', title: 'Sudha Vatika Dashboard', icon: '🏡', Component: SudhaVatika },
   { id: 'github-live', title: 'Live GitHub Feed', icon: '🐙', Component: GitHubLive },
 ] as const;
+
+// Launched from AppDashboard tiles rather than a desktop icon, so it's a window but not an icon.
+const WINDOW_ONLY_APPS = [{ id: 'app-viewer', Component: AppViewer }] as const;
 
 export default function Home() {
   const windows = useDesktopStore((s) => s.windows);
@@ -52,14 +58,14 @@ export default function Home() {
       </div>
 
       <div ref={windowsContainerRef} className="pointer-events-none fixed inset-0 z-20">
-        {APPS.map(({ id, title, Component }) => {
+        {[...APPS, ...WINDOW_ONLY_APPS].map(({ id, Component }) => {
           const win = windows.find((w) => w.id === id);
           if (!win || !win.isOpen) return null;
           return (
             <WindowManager
               key={id}
               id={id}
-              title={title}
+              title={win.title}
               zIndex={win.zIndex}
               isMinimized={win.isMinimized}
               constraintsRef={windowsContainerRef}
