@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { bumpBestLow, getStat } from '@/lib/gameStats';
 
 const ICONS = ['🚀', '🤖', '🧠', '💾', '🔭', '🛰️', '⚡', '🎯'];
 
@@ -24,8 +25,23 @@ export function MemoryGame() {
   const [flipped, setFlipped] = useState<number[]>([]);
   const [moves, setMoves] = useState(0);
   const [locked, setLocked] = useState(false);
+  const [bestMoves, setBestMoves] = useState(0);
+
+  useEffect(() => {
+    // Client-only: read the saved best-moves record after mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setBestMoves(getStat('memory-best-moves'));
+  }, []);
 
   const won = useMemo(() => cards.every((c) => c.matched), [cards]);
+
+  useEffect(() => {
+    if (won && moves > 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setBestMoves(bumpBestLow('memory-best-moves', moves));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [won]);
 
   function handleFlip(index: number) {
     if (locked || flipped.includes(index) || cards[index].matched) return;
@@ -60,7 +76,10 @@ export function MemoryGame() {
 
   return (
     <div className="space-y-2 text-center">
-      <p className="text-xs text-white/60">Moves: {moves}{won && ' — Solved! 🎉'}</p>
+      <p className="text-xs text-white/60">
+        Moves: {moves} · Best: {bestMoves || '—'}
+        {won && ' — Solved! 🎉'}
+      </p>
       <div className="mx-auto grid w-fit grid-cols-4 gap-1.5">
         {cards.map((card, i) => {
           const isFlipped = flipped.includes(i) || card.matched;
