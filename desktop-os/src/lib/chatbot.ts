@@ -63,7 +63,7 @@ export function getReply(message: string): string {
 // Set this once the groq-proxy/ serverless function (see its README) is deployed,
 // e.g. 'https://kushagra-ai-proxy.vercel.app/api/chat'. Left blank, the assistant
 // runs on the rule-based getReply() above only.
-const GROQ_PROXY_URL = 'https://kushagra486-github-j11lnw7ry-kushagra486s-projects.vercel.app/';
+const GROQ_PROXY_URL = 'https://kushagra486-github-io.vercel.app/api/chat';
 
 export interface ChatMessage {
   role: 'user' | 'assistant';
