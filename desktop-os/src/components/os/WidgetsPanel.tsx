@@ -5,6 +5,7 @@ import { ClockWidget } from '@/components/os/widgets/ClockWidget';
 import { CalendarWidget } from '@/components/os/widgets/CalendarWidget';
 import { WeatherWidget } from '@/components/os/widgets/WeatherWidget';
 import { GitHubStatsWidget } from '@/components/os/widgets/GitHubStatsWidget';
+import { GamesWidget } from '@/components/os/widgets/GamesWidget';
 
 export function WidgetsPanel({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
@@ -35,6 +36,7 @@ export function WidgetsPanel({ open, onClose }: { open: boolean; onClose: () => 
             <WeatherWidget />
             <CalendarWidget />
             <GitHubStatsWidget />
+            <GamesWidget />
           </motion.div>
         </>
       )}

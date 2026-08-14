@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { bumpBest, getStat } from '@/lib/gameStats';
 
 const GRID = 18;
 const CELL = 16;
@@ -22,15 +23,24 @@ export function SnakeGame() {
   const dirRef = useRef<Point>({ x: 1, y: 0 });
   const nextDirRef = useRef<Point>({ x: 1, y: 0 });
   const foodRef = useRef<Point>(randomFood([{ x: 8, y: 8 }]));
+  const scoreRef = useRef(0);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [running, setRunning] = useState(false);
+  const [highScore, setHighScore] = useState(0);
+
+  useEffect(() => {
+    // Client-only: read the saved high score after mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setHighScore(getStat('snake-high-score'));
+  }, []);
 
   function reset() {
     snakeRef.current = [{ x: 8, y: 8 }];
     dirRef.current = { x: 1, y: 0 };
     nextDirRef.current = { x: 1, y: 0 };
     foodRef.current = randomFood(snakeRef.current);
+    scoreRef.current = 0;
     setScore(0);
     setGameOver(false);
     setRunning(true);
@@ -71,13 +81,15 @@ export function SnakeGame() {
       if (hitsWall || hitsSelf) {
         setRunning(false);
         setGameOver(true);
+        setHighScore(bumpBest('snake-high-score', scoreRef.current));
         return;
       }
 
       const ate = head.x === foodRef.current.x && head.y === foodRef.current.y;
       const newSnake = [head, ...snake];
       if (ate) {
-        setScore((s) => s + 1);
+        scoreRef.current += 1;
+        setScore(scoreRef.current);
         foodRef.current = randomFood(newSnake);
       } else {
         newSnake.pop();
@@ -100,7 +112,9 @@ export function SnakeGame() {
 
   return (
     <div className="space-y-2 text-center">
-      <p className="text-xs text-white/60">Arrow keys / WASD to move · Score: {score}</p>
+      <p className="text-xs text-white/60">
+        Arrow keys / WASD to move · Score: {score} · Best: {highScore}
+      </p>
       <canvas
         ref={canvasRef}
         width={GRID * CELL}
