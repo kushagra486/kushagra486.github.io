@@ -1,7 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-import { getReply } from '@/lib/chatbot';
+import { ChatMessage, getSmartReply } from '@/lib/chatbot';
 
 interface Message {
   role: 'bot' | 'visitor';
@@ -10,17 +10,27 @@ interface Message {
 
 export function AIAssistant() {
   const [input, setInput] = useState('');
+  const [thinking, setThinking] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { role: 'bot', text: "Hi! I'm Kushagra's portfolio assistant. Ask me about his projects, skills, or how to get in touch." },
   ]);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const text = input.trim();
-    if (!text) return;
-    const reply = getReply(text);
-    setMessages((prev) => [...prev, { role: 'visitor', text }, { role: 'bot', text: reply }]);
+    if (!text || thinking) return;
+
+    const history: ChatMessage[] = messages.map((m) => ({
+      role: m.role === 'visitor' ? 'user' : 'assistant',
+      content: m.text,
+    }));
+
+    setMessages((prev) => [...prev, { role: 'visitor', text }]);
     setInput('');
+    setThinking(true);
+    const reply = await getSmartReply(text, history);
+    setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
+    setThinking(false);
   }
 
   return (
@@ -37,17 +47,24 @@ export function AIAssistant() {
             </span>
           </div>
         ))}
+        {thinking && (
+          <div className="flex justify-start">
+            <span className="max-w-[80%] rounded-lg bg-white/10 px-3 py-1.5 text-white/50">Thinking…</span>
+          </div>
+        )}
       </div>
       <form onSubmit={handleSubmit} className="mt-2 flex gap-2 border-t border-white/10 pt-2">
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask about projects, skills, contact..."
-          className="flex-1 rounded-md border border-white/15 bg-white/5 px-2.5 py-1.5 text-white outline-none placeholder:text-white/30 focus:border-cyan-300/60"
+          disabled={thinking}
+          className="flex-1 rounded-md border border-white/15 bg-white/5 px-2.5 py-1.5 text-white outline-none placeholder:text-white/30 focus:border-cyan-300/60 disabled:opacity-50"
         />
         <button
           type="submit"
-          className="rounded-md bg-cyan-400/90 px-3 py-1.5 text-xs font-medium text-black transition hover:bg-cyan-300"
+          disabled={thinking}
+          className="rounded-md bg-cyan-400/90 px-3 py-1.5 text-xs font-medium text-black transition hover:bg-cyan-300 disabled:opacity-50"
         >
           Send
         </button>
