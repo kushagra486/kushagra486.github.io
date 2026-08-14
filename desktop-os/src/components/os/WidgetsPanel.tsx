@@ -8,6 +8,7 @@ import { GitHubStatsWidget } from '@/components/os/widgets/GitHubStatsWidget';
 import { GitHubActivityWidget } from '@/components/os/widgets/GitHubActivityWidget';
 import { AchievementsWidget } from '@/components/os/widgets/AchievementsWidget';
 import { GamesWidget } from '@/components/os/widgets/GamesWidget';
+import { NewsWidget } from '@/components/os/widgets/NewsWidget';
 
 export function WidgetsPanel({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
@@ -37,6 +38,7 @@ export function WidgetsPanel({ open, onClose }: { open: boolean; onClose: () => 
             <ClockWidget />
             <WeatherWidget />
             <CalendarWidget />
+            <NewsWidget />
             <AchievementsWidget />
             <GitHubActivityWidget />
             <GitHubStatsWidget />

@@ -10,6 +10,8 @@ import { BootScreen } from '@/components/os/BootScreen';
 import { GreetingPopup } from '@/components/os/GreetingPopup';
 import { WidgetsPanel } from '@/components/os/WidgetsPanel';
 import { DesktopWidgets } from '@/components/os/DesktopWidgets';
+import { DesktopHero } from '@/components/os/DesktopHero';
+import { MenuBar } from '@/components/os/MenuBar';
 import { AboutMe } from '@/components/apps/AboutMe';
 import { Projects } from '@/components/apps/Projects';
 import { Certifications } from '@/components/apps/Certifications';
@@ -55,8 +57,10 @@ export default function Home() {
       <AnimatePresence>{!booted && <BootScreen onDone={() => setBooted(true)} />}</AnimatePresence>
 
       <Wallpaper />
+      <DesktopHero />
+      <MenuBar />
 
-      <div className="relative z-10 flex flex-row flex-wrap gap-1 p-3 sm:flex-col sm:gap-2 sm:p-4 sm:w-24">
+      <div className="relative z-10 flex flex-row flex-wrap gap-1 p-3 pt-10 sm:flex-col sm:gap-2 sm:p-4 sm:pt-12 sm:w-24">
         {APPS.map((app) => (
           <DesktopIcon key={app.id} id={app.id} title={app.title} icon={app.icon} />
         ))}
@@ -87,7 +91,7 @@ export default function Home() {
 
       <WidgetsPanel open={widgetsOpen} onClose={() => setWidgetsOpen(false)} />
 
-      <Taskbar onToggleWidgets={() => setWidgetsOpen((v) => !v)} />
+      <Taskbar apps={APPS} onToggleWidgets={() => setWidgetsOpen((v) => !v)} />
     </div>
   );
 }
