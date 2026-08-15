@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { expertise, profile, skills } from '@/lib/portfolioData';
+import { expertise, skills } from '@/lib/portfolioData';
+import { ProfileCard } from '@/components/os/ProfileCard';
 
 const EXTRA_KEYWORDS = ['GenAI', 'LLMs', 'AI Agents', 'Neural Networks', 'Prompt Engineering', 'Computer Vision'];
 
@@ -21,18 +22,11 @@ function layoutFor(i: number, total: number) {
   return { top: `${top}%`, left: `${left}%`, duration, delay };
 }
 
-/** Animated name banner + floating AI/skill keyword chips scattered across the desktop background. */
+/** Default-visible profile card + floating AI/skill keyword chips scattered across the desktop background. */
 export function DesktopHero() {
   return (
     <div className="pointer-events-none fixed inset-0 z-[5] overflow-hidden">
-      <div className="absolute inset-x-0 top-14 flex flex-col items-center gap-1 text-center sm:top-16">
-        <h1
-          className="bg-[length:200%_auto] bg-gradient-to-r from-cyan-300 via-white to-cyan-300 bg-clip-text text-2xl font-bold tracking-tight text-transparent [animation:name-shimmer_5s_linear_infinite] sm:text-3xl"
-        >
-          {profile.name}
-        </h1>
-        <p className="text-xs font-medium text-white/50 sm:text-sm">{profile.role}</p>
-      </div>
+      <ProfileCard />
 
       {KEYWORDS.map((word, i) => {
         const { top, left, duration, delay } = layoutFor(i, KEYWORDS.length);
