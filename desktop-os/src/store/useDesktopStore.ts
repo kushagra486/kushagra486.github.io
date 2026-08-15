@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { recordAppOpen } from '@/lib/achievements';
 
 export interface DesktopWindow {
   id: string;
@@ -29,7 +30,8 @@ export const useDesktopStore = create<DesktopState>((set, get) => ({
   activeZIndex: 10,
   activeApp: null,
 
-  openWindow: (id, title) =>
+  openWindow: (id, title) => {
+    recordAppOpen(id);
     set((state) => {
       const exists = state.windows.find((w) => w.id === id);
       if (exists) {
@@ -49,7 +51,8 @@ export const useDesktopStore = create<DesktopState>((set, get) => ({
         ],
         activeZIndex: state.activeZIndex + 1,
       };
-    }),
+    });
+  },
 
   closeWindow: (id) =>
     set((state) => ({

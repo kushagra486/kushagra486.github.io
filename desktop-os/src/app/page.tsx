@@ -12,38 +12,10 @@ import { WidgetsPanel } from '@/components/os/WidgetsPanel';
 import { DesktopWidgets } from '@/components/os/DesktopWidgets';
 import { DesktopHero } from '@/components/os/DesktopHero';
 import { MenuBar } from '@/components/os/MenuBar';
-import { AboutMe } from '@/components/apps/AboutMe';
-import { Projects } from '@/components/apps/Projects';
-import { Certifications } from '@/components/apps/Certifications';
-import { AIAssistant } from '@/components/apps/AIAssistant';
-import { Games } from '@/components/apps/Games';
-import { AppDashboard } from '@/components/apps/AppDashboard';
-import { AppViewer } from '@/components/apps/AppViewer';
-import { ResumeViewer } from '@/components/apps/ResumeViewer';
-import { CVViewer } from '@/components/apps/CVViewer';
-import { AIMantram } from '@/components/apps/AIMantram';
-import { NeonAirDraw } from '@/components/apps/NeonAirDraw';
-import { SudhaVatika } from '@/components/apps/SudhaVatika';
-import { GitHubLive } from '@/components/apps/GitHubLive';
+import { GlobalShortcuts } from '@/components/os/GlobalShortcuts';
+import { Screensaver } from '@/components/os/Screensaver';
+import { APPS, WINDOW_ONLY_APPS } from '@/lib/apps';
 import { useDesktopStore } from '@/store/useDesktopStore';
-
-const APPS = [
-  { id: 'about-me', title: 'About Me', icon: '🧑‍💻', Component: AboutMe },
-  { id: 'resume', title: 'Resume', icon: '📄', Component: ResumeViewer },
-  { id: 'cv', title: 'CV', icon: '📋', Component: CVViewer },
-  { id: 'projects', title: 'Projects', icon: '🗂️', Component: Projects },
-  { id: 'app-dashboard', title: 'Live Apps', icon: '🚀', Component: AppDashboard },
-  { id: 'certifications', title: 'Certifications', icon: '🏅', Component: Certifications },
-  { id: 'ai-assistant', title: 'AI Assistant', icon: '💬', Component: AIAssistant },
-  { id: 'games', title: 'Games', icon: '🎮', Component: Games },
-  { id: 'ai-mantram', title: 'AI Mantram Console', icon: '🖥️', Component: AIMantram },
-  { id: 'neon-air-draw', title: 'Neon Air Draw Ultra PRO', icon: '🎨', Component: NeonAirDraw },
-  { id: 'sudha-vatika', title: 'Sudha Vatika Dashboard', icon: '🏡', Component: SudhaVatika },
-  { id: 'github-live', title: 'Live GitHub Feed', icon: '🐙', Component: GitHubLive },
-] as const;
-
-// Launched from AppDashboard tiles rather than a desktop icon, so it's a window but not an icon.
-const WINDOW_ONLY_APPS = [{ id: 'app-viewer', Component: AppViewer }] as const;
 
 export default function Home() {
   const windows = useDesktopStore((s) => s.windows);
@@ -92,6 +64,9 @@ export default function Home() {
       <WidgetsPanel open={widgetsOpen} onClose={() => setWidgetsOpen(false)} />
 
       <Taskbar apps={APPS} onToggleWidgets={() => setWidgetsOpen((v) => !v)} />
+
+      <GlobalShortcuts />
+      <Screensaver />
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { profile } from '@/lib/portfolioData';
+import { usePreferences } from '@/lib/preferences';
 
 const initials = profile.name
   .split(' ')
@@ -70,28 +71,33 @@ const links = [
 /** Default-visible "about me" card on the desktop — animated avatar ring + typewriter role, no window needed. */
 export function ProfileCard() {
   const role = useTypewriter(roleWords);
+  const reducedMotion = usePreferences((s) => s.reducedMotion);
 
   return (
     <div className="pointer-events-auto absolute left-1/2 top-11 z-10 hidden w-[min(90vw,26rem)] -translate-x-1/2 sm:block">
       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur-xl">
         {/* Ambient moving glow — a video-loop-style animated backdrop, no video asset needed. */}
-        <motion.div
-          className="pointer-events-none absolute -left-10 -top-16 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl"
-          animate={{ x: [0, 24, 0], y: [0, 14, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="pointer-events-none absolute -right-12 -bottom-16 h-44 w-44 rounded-full bg-fuchsia-400/10 blur-3xl"
-          animate={{ x: [0, -18, 0], y: [0, -12, 0], scale: [1.1, 1, 1.1] }}
-          transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        {!reducedMotion && (
+          <>
+            <motion.div
+              className="pointer-events-none absolute -left-10 -top-16 h-40 w-40 rounded-full bg-cyan-400/20 blur-3xl"
+              animate={{ x: [0, 24, 0], y: [0, 14, 0], scale: [1, 1.15, 1] }}
+              transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.div
+              className="pointer-events-none absolute -right-12 -bottom-16 h-44 w-44 rounded-full bg-fuchsia-400/10 blur-3xl"
+              animate={{ x: [0, -18, 0], y: [0, -12, 0], scale: [1.1, 1, 1.1] }}
+              transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </>
+        )}
 
         <div className="relative flex items-center gap-4">
           <div className="relative h-16 w-16 shrink-0">
             <motion.div
               className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,#22d3ee,#a855f7,#22d3ee)]"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
+              animate={reducedMotion ? { rotate: 0 } : { rotate: 360 }}
+              transition={reducedMotion ? { duration: 0 } : { duration: 6, repeat: Infinity, ease: 'linear' }}
             />
             <div className="absolute inset-[3px] flex items-center justify-center rounded-full bg-[#0f2740] text-lg font-bold text-white">
               {initials}
