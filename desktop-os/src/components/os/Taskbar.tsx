@@ -1,38 +1,60 @@
 'use client';
 
 import { useDesktopStore } from '@/store/useDesktopStore';
+import { sound } from '@/lib/sound';
 
-export function Taskbar({ onToggleWidgets }: { onToggleWidgets: () => void }) {
+interface DockApp {
+  id: string;
+  title: string;
+  icon: string;
+}
+
+export function Taskbar({ apps, onToggleWidgets }: { apps: readonly DockApp[]; onToggleWidgets: () => void }) {
   const windows = useDesktopStore((s) => s.windows);
+  const openWindow = useDesktopStore((s) => s.openWindow);
   const focusWindow = useDesktopStore((s) => s.focusWindow);
-  const openWindows = windows.filter((w) => w.isOpen);
+  const minimizeWindow = useDesktopStore((s) => s.minimizeWindow);
+
+  function handleClick(app: DockApp) {
+    const win = windows.find((w) => w.id === app.id);
+    sound.click();
+    if (!win || !win.isOpen) {
+      openWindow(app.id, app.title);
+    } else if (win.isMinimized) {
+      focusWindow(app.id);
+    } else {
+      minimizeWindow(app.id);
+    }
+  }
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 flex items-center gap-2 border-t border-white/15 bg-black/40 px-4 py-2 backdrop-blur-xl">
-      <span className="pr-1 text-sm font-semibold tracking-wide text-white/90">Kushagra OS</span>
-      <button
-        onClick={onToggleWidgets}
-        aria-label="Toggle widgets"
-        className="rounded-md px-2 py-1 text-xs text-white/80 transition hover:bg-white/10"
-      >
-        📌 Widgets
-      </button>
-      <div className="flex flex-1 gap-2">
-        {openWindows.map((w) => (
-          <button
-            key={w.id}
-            onClick={() => focusWindow(w.id)}
-            className={`rounded-md px-3 py-1 text-xs text-white/90 transition ${
-              w.isMinimized ? 'bg-white/10' : 'bg-white/20'
-            } hover:bg-white/25`}
-          >
-            {w.title}
-          </button>
-        ))}
+    <div className="fixed inset-x-0 bottom-2 z-50 flex justify-center px-2">
+      <div className="flex max-w-full items-end gap-1 overflow-x-auto rounded-2xl border border-white/15 bg-black/40 px-2 py-1.5 shadow-2xl backdrop-blur-xl">
+        <button
+          onClick={onToggleWidgets}
+          aria-label="Toggle widgets"
+          title="Widgets"
+          className="group flex shrink-0 flex-col items-center gap-0.5 rounded-xl px-2 py-1 transition hover:-translate-y-1 hover:bg-white/10"
+        >
+          <span className="text-xl transition-transform group-hover:scale-110">📌</span>
+        </button>
+        <div className="mx-1 h-8 w-px shrink-0 bg-white/15" />
+        {apps.map((app) => {
+          const win = windows.find((w) => w.id === app.id);
+          const isOpen = !!win?.isOpen;
+          return (
+            <button
+              key={app.id}
+              onClick={() => handleClick(app)}
+              title={app.title}
+              className="group flex shrink-0 flex-col items-center gap-0.5 rounded-xl px-2 py-1 transition hover:-translate-y-1 hover:bg-white/10"
+            >
+              <span className="text-xl drop-shadow transition-transform group-hover:scale-125">{app.icon}</span>
+              <span className={`h-1 w-1 rounded-full ${isOpen ? 'bg-cyan-300' : 'bg-transparent'}`} />
+            </button>
+          );
+        })}
       </div>
-      <span className="text-xs text-white/60">
-        {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-      </span>
     </div>
   );
 }

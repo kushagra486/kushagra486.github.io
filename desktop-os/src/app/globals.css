@@ -24,3 +24,37 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.docx-preview h1,
+.docx-preview h2,
+.docx-preview h3 {
+  font-weight: 700;
+  margin: 0.9em 0 0.35em;
+  color: #0f2740;
+}
+.docx-preview h1 { font-size: 1.35em; }
+.docx-preview h2 { font-size: 1.15em; }
+.docx-preview h3 { font-size: 1.02em; }
+.docx-preview p { margin: 0.4em 0; }
+.docx-preview ul,
+.docx-preview ol {
+  margin: 0.3em 0 0.6em 1.25em;
+}
+.docx-preview li { margin: 0.15em 0; }
+.docx-preview strong { color: #0f2740; }
+.docx-preview a { color: #0369a1; text-decoration: underline; }
+.docx-preview table {
+  border-collapse: collapse;
+  margin: 0.5em 0;
+  width: 100%;
+}
+.docx-preview td,
+.docx-preview th {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0.3em 0.5em;
+}
+
+@keyframes name-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
