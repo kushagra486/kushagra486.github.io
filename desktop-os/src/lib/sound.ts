@@ -1,3 +1,5 @@
+import { usePreferences } from '@/lib/preferences';
+
 let ctx: AudioContext | null = null;
 
 function getCtx() {
@@ -7,6 +9,7 @@ function getCtx() {
 }
 
 function blip(freq: number, duration: number, gain = 0.05) {
+  if (!usePreferences.getState().soundEnabled) return;
   const audioCtx = getCtx();
   if (!audioCtx) return;
   const osc = audioCtx.createOscillator();

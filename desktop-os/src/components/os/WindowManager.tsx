@@ -29,6 +29,8 @@ export function WindowManager({ id, title, zIndex, isMinimized, constraintsRef, 
       dragMomentum={false}
       dragElastic={0}
       onPointerDown={() => focusWindow(id)}
+      role="region"
+      aria-label={title}
       initial={{ opacity: 0, scale: 0.96, y: 12 }}
       animate={{
         opacity: isMinimized ? 0 : 1,
@@ -47,7 +49,7 @@ export function WindowManager({ id, title, zIndex, isMinimized, constraintsRef, 
         <span className="text-sm font-medium text-white/90">{title}</span>
         <div className="flex items-center gap-2">
           <button
-            aria-label="Minimize"
+            aria-label={`Minimize ${title}`}
             onClick={() => {
               sound.click();
               minimizeWindow(id);
@@ -55,7 +57,7 @@ export function WindowManager({ id, title, zIndex, isMinimized, constraintsRef, 
             className="h-3 w-3 rounded-full bg-yellow-400/90 transition hover:brightness-110"
           />
           <button
-            aria-label="Close"
+            aria-label={`Close ${title}`}
             onClick={() => {
               sound.close();
               closeWindow(id);

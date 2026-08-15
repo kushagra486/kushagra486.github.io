@@ -71,6 +71,12 @@ export const skills = {
   'DevOps & Cloud': ['Git', 'GitHub Actions', 'Docker', 'AWS', 'Vercel', 'Netlify'],
 };
 
+export interface CaseStudy {
+  problem: string;
+  approach: string[];
+  outcome: string;
+}
+
 export interface Project {
   slug: string;
   emoji: string;
@@ -82,6 +88,8 @@ export interface Project {
   url?: string;
   /** GitHub repository URL. */
   repoUrl: string;
+  /** Deep-dive (problem/approach/outcome) shown for a handful of flagship projects. */
+  caseStudy?: CaseStudy;
 }
 
 export const projects: Project[] = [
@@ -99,6 +107,18 @@ export const projects: Project[] = [
     stack: ['Next.js 16', 'TypeScript', 'Supabase', 'Groq', 'Vercel'],
     url: 'https://bharat-inventory-manager.vercel.app',
     repoUrl: 'https://github.com/kushagra486/Bharat-Inventory-Manager-',
+    caseStudy: {
+      problem:
+        'Small retailers juggle inventory, storefront, and delivery as disconnected tools (a notebook, a WhatsApp group, a separate delivery app) — stock goes stale the moment one channel updates without the others knowing.',
+      approach: [
+        'Designed one Supabase schema shared by three apps (owner dashboard, customer marketplace, delivery platform) instead of three separate backends',
+        'Enforced Row-Level Security at the database layer so each role only ever sees what it is allowed to, even if app-side code has a bug',
+        'Wired Supabase Realtime so a single order event propagates to all three apps within milliseconds — no polling',
+        'Used Groq (Llama 3.3) for fast, cheap restock forecasts and business insights instead of a slower/costlier model',
+      ],
+      outcome:
+        'One order update is instantly consistent across owner, storefront, and delivery — with zero custom sync code and stock-level security enforced by the database itself, not application logic that could be bypassed.',
+    },
   },
   {
     slug: 'resumeai',
@@ -130,6 +150,18 @@ export const projects: Project[] = [
     stack: ['Next.js', 'TypeScript', 'Supabase', 'Groq'],
     url: 'https://nyaya-agent-git-main-kushagra486s-projects.vercel.app',
     repoUrl: 'https://github.com/kushagra486/nyaya-agent',
+    caseStudy: {
+      problem:
+        "India rewrote its core criminal codes in 2024 (IPC→BNS, CrPC→BNSS, Evidence Act→BSA), leaving most legal research still anchored to the old codes — with no simple way to bridge the two for someone researching either era's law.",
+      approach: [
+        'Built a cross-reference layer mapping old-code sections to their new-code equivalents so research works regardless of which system a document uses',
+        'Used Groq for AI-assisted research and drafting, prioritizing response speed since legal lookup is an interactive, iterative workflow',
+        'Added lawyer discovery and a live legal-news feed so the platform is useful beyond one-off lookups',
+        'Kept the whole stack zero-cost/open-source (Supabase + Vercel free tiers) to make it realistically usable, not a funded-only tool',
+      ],
+      outcome:
+        'A single platform where old-code and new-code legal research meet — with AI assistance fast enough to be part of an active research workflow rather than a slow batch lookup.',
+    },
   },
   {
     slug: 'bharat-news-ai',
@@ -145,6 +177,18 @@ export const projects: Project[] = [
     stack: ['Groq', 'Supabase Auth', 'JavaScript'],
     url: 'https://kushagra486.github.io/bharat-news-ai/',
     repoUrl: 'https://github.com/kushagra486/bharat-news-ai',
+    caseStudy: {
+      problem:
+        'Any single news source has blind spots and bias. Reading four sources separately to cross-check a story is slow enough that most people just... don’t.',
+      approach: [
+        'Aggregated 4 live news sources and deduped overlapping stories client-side',
+        'Used Groq Llama 3.3 for per-article "why it matters" summaries fast enough to run on every article, not just on-demand',
+        'Built an Instagram-style feed UI so scanning many stories is fast, with a dedicated stories viewer for depth',
+        'Added an AI assistant with two explicit modes — news-grounded (only reasons from the fetched articles) and general chat — so answers are never accidentally presented as sourced when they are not',
+      ],
+      outcome:
+        'A single feed that reads faster than checking four apps, with AI-generated context on every story rather than only the ones worth manually summarizing.',
+    },
   },
   {
     slug: 'thesis-ai',
