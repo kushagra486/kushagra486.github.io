@@ -33,7 +33,15 @@ export default function Home() {
         <DesktopHero />
         <MenuBar />
 
-        <div className="relative z-10 flex flex-row flex-wrap gap-1 p-3 pt-10 sm:flex-col sm:gap-2 sm:p-4 sm:pt-12 sm:w-24">
+        {/* Mobile: a simple wrapping row grid. Desktop: a height-bounded column that wraps into
+            new columns once it runs out of vertical room — like a real OS icon grid — instead
+            of a single column that could overflow past the bottom of the screen. */}
+        <div className="relative z-10 flex flex-row flex-wrap gap-1 p-3 pt-10 sm:hidden">
+          {APPS.map((app) => (
+            <DesktopIcon key={app.id} id={app.id} title={app.title} icon={app.icon} />
+          ))}
+        </div>
+        <div className="absolute left-0 top-12 z-10 hidden sm:flex sm:flex-col sm:flex-wrap sm:content-start sm:gap-1 sm:bottom-20 sm:p-3 sm:pt-2">
           {APPS.map((app) => (
             <DesktopIcon key={app.id} id={app.id} title={app.title} icon={app.icon} />
           ))}
