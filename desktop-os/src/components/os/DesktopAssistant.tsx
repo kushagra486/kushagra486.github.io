@@ -38,7 +38,7 @@ export function DesktopAssistant() {
   }
 
   return (
-    <div className="pointer-events-auto fixed bottom-20 right-4 z-40 flex flex-col items-end gap-2 sm:right-6">
+    <div className="pointer-events-auto fixed bottom-20 right-4 z-[15] flex flex-col items-end gap-2 sm:right-6">
       <AnimatePresence>
         {bubble && (
           <motion.div
