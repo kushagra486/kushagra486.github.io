@@ -5,6 +5,13 @@ import { motion } from 'framer-motion';
 import { profile } from '@/lib/portfolioData';
 import { usePreferences } from '@/lib/preferences';
 
+const initials = profile.name
+  .split(' ')
+  .map((w) => w[0])
+  .join('')
+  .slice(0, 2)
+  .toUpperCase();
+
 const roleWords = profile.openToRoles.length > 0 ? profile.openToRoles : [profile.role];
 
 /** Types + deletes through a list of words, cycling forever. Client-only (setInterval-driven). */
@@ -92,9 +99,8 @@ export function ProfileCard() {
               animate={reducedMotion ? { rotate: 0 } : { rotate: 360 }}
               transition={reducedMotion ? { duration: 0 } : { duration: 6, repeat: Infinity, ease: 'linear' }}
             />
-            <div className="absolute inset-[3px] overflow-hidden rounded-full bg-[#0f2740]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/avatar/face.jpg" alt={profile.name} className="h-full w-full object-cover" />
+            <div className="absolute inset-[3px] flex items-center justify-center rounded-full bg-[#0f2740] text-lg font-bold text-white">
+              {initials}
             </div>
           </div>
 

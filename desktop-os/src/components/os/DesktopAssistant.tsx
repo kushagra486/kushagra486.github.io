@@ -5,6 +5,14 @@ import { useEffect, useState } from 'react';
 import { useDesktopStore } from '@/store/useDesktopStore';
 import { usePreferences } from '@/lib/preferences';
 import { sound } from '@/lib/sound';
+import { profile } from '@/lib/portfolioData';
+
+const initials = profile.name
+  .split(' ')
+  .map((w) => w[0])
+  .join('')
+  .slice(0, 2)
+  .toUpperCase();
 
 const HINTS = [
   "👋 Hey! I'm Kushagra's AI assistant — ask me about his projects.",
@@ -12,7 +20,7 @@ const HINTS = [
   '🕸️ Check out the Skill Graph to see how everything connects.',
 ];
 
-/** Always-on-desktop assistant avatar (Kushagra's own photo) — click to chat, with an occasional speech bubble. */
+/** Always-on-desktop assistant avatar — click to chat, with an occasional speech bubble. */
 export function DesktopAssistant() {
   const openWindow = useDesktopStore((s) => s.openWindow);
   const reducedMotion = usePreferences((s) => s.reducedMotion);
@@ -85,12 +93,11 @@ export function DesktopAssistant() {
           transition={reducedMotion ? { duration: 0 } : { duration: 8, repeat: Infinity, ease: 'linear' }}
         />
         <motion.span
-          className="absolute inset-[3px] overflow-hidden rounded-full border border-white/20 bg-[#0f2740]"
+          className="absolute inset-[3px] flex items-center justify-center overflow-hidden rounded-full border border-white/20 bg-[#0f2740] text-sm font-bold text-white"
           animate={reducedMotion ? { scale: 1 } : { scale: [1, 1.03, 1] }}
           transition={reducedMotion ? { duration: 0 } : { duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/avatar/face.jpg" alt="Kushagra Gupta" className="h-full w-full object-cover" />
+          {initials}
         </motion.span>
         <span className="absolute bottom-0.5 right-0.5 h-3 w-3 rounded-full border-2 border-[#0a1a2e] bg-emerald-400" />
       </button>

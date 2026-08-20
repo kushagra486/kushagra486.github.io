@@ -1,49 +1,8 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { expertise, profile, skills } from '@/lib/portfolioData';
-import { usePreferences } from '@/lib/preferences';
-
-function MotionPhoto() {
-  const reducedMotion = usePreferences((s) => s.reducedMotion);
-
-  return (
-    <div className="relative mx-auto h-48 w-full max-w-sm overflow-hidden rounded-xl border border-cyan-300/20 shadow-2xl">
-      <motion.img
-        src="/avatar/photo.jpg"
-        alt={profile.name}
-        className="h-full w-full object-cover"
-        animate={
-          reducedMotion
-            ? { scale: 1 }
-            : { scale: [1, 1.1, 1.03, 1.1, 1], x: [0, -6, 4, -3, 0], y: [0, -4, 3, -2, 0] }
-        }
-        transition={reducedMotion ? { duration: 0 } : { duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a1a2e]/70 via-transparent to-transparent" />
-      {!reducedMotion && (
-        <motion.div
-          className="pointer-events-none absolute inset-x-0 h-8 bg-gradient-to-b from-cyan-300/25 to-transparent"
-          animate={{ top: ['-10%', '100%'] }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-        />
-      )}
-      <div className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-black/50 px-2 py-0.5 text-[10px] font-medium text-white/90 backdrop-blur-sm">
-        <span className="relative flex h-1.5 w-1.5">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75" />
-          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-red-500" />
-        </span>
-        LIVE
-      </div>
-    </div>
-  );
-}
 
 export function AboutMe() {
   return (
     <div className="space-y-4 text-sm">
-      <MotionPhoto />
-
       <div>
         <h2 className="text-lg font-semibold text-white">{profile.name}</h2>
         <p className="text-cyan-300/90">{profile.role}</p>
