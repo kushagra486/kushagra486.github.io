@@ -58,3 +58,20 @@ body {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
+
+/* Locks the OS to 16:9 (landscape) / 9:16 (portrait), letterboxed to fit the viewport.
+   Setting width/height to the full viewport AND capping each with a max- computed from
+   the *other* axis means whichever axis is the binding constraint wins automatically,
+   while the other stays at its 100% value — the standard letterbox/pillarbox trick. */
+.screen-frame {
+  width: 100vw;
+  height: 100vh;
+  max-width: calc(100vh * 16 / 9);
+  max-height: calc(100vw * 9 / 16);
+}
+@media (orientation: portrait) {
+  .screen-frame {
+    max-width: calc(100vh * 9 / 16);
+    max-height: calc(100vw * 16 / 9);
+  }
+}
