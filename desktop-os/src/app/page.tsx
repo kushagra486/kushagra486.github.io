@@ -7,7 +7,7 @@ import { Taskbar } from '@/components/os/Taskbar';
 import { WindowManager } from '@/components/os/WindowManager';
 import { Wallpaper } from '@/components/os/Wallpaper';
 import { BootScreen } from '@/components/os/BootScreen';
-import { GreetingPopup } from '@/components/os/GreetingPopup';
+import { DesktopAssistant } from '@/components/os/DesktopAssistant';
 import { WidgetsPanel } from '@/components/os/WidgetsPanel';
 import { DesktopWidgets } from '@/components/os/DesktopWidgets';
 import { DesktopHero } from '@/components/os/DesktopHero';
@@ -19,7 +19,6 @@ import { useDesktopStore } from '@/store/useDesktopStore';
 
 export default function Home() {
   const windows = useDesktopStore((s) => s.windows);
-  const openWindow = useDesktopStore((s) => s.openWindow);
   const [booted, setBooted] = useState(false);
   const [widgetsOpen, setWidgetsOpen] = useState(false);
   const windowsContainerRef = useRef<HTMLDivElement>(null);
@@ -59,7 +58,7 @@ export default function Home() {
         })}
       </div>
 
-      {booted && <GreetingPopup onOpenAssistant={() => openWindow('ai-assistant', 'AI Assistant')} />}
+      {booted && <DesktopAssistant />}
 
       <WidgetsPanel open={widgetsOpen} onClose={() => setWidgetsOpen(false)} />
 
