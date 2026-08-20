@@ -50,6 +50,7 @@ export const liveApps: LiveApp[] = [
   { slug: 'thesis-ai', name: 'Thesis AI', emoji: '📄', url: 'https://kushagra486.github.io/thesis-ai/' },
   { slug: 'sentient-lens', name: 'SENTIENT LENS', emoji: '👁️', url: 'https://kushagra486.github.io/sentient-lens/' },
   { slug: 'neon-air-draw', name: 'Neon Air Draw', emoji: '🖐️', url: 'https://kushagra486.github.io/neon-air-paint-/' },
+  { slug: 'anvil', name: 'Anvil', emoji: '⚒️', url: 'https://kushagra486.github.io/anvil/' },
 ];
 
 export const skills = {
@@ -340,6 +341,22 @@ export const projects: Project[] = [
     ],
     stack: ['GitHub Actions', 'Node.js'],
     repoUrl: 'https://github.com/kushagra486/github-activity-bot',
+  },
+  {
+    slug: 'anvil',
+    emoji: '⚒️',
+    name: 'Anvil',
+    tagline: 'Forge Sharper Prompts, Build Lasting Skills',
+    description: [
+      'A workshop for anyone who writes prompts or builds skills for Claude — score work live, test it for real, and keep everything in one place.',
+      'Prompt Studio: live 0–100 quality score against a checklist (clarity, examples, structure), then run it for real',
+      'Skill Builder: guided form for triggers/steps/examples, generates a ready-to-use SKILL.md preview',
+      'Zero backend — everything saved to the visitor\'s own browser; signups land as GitHub Issues instead of a database',
+      'No framework, no bundler — plain HTML/CSS/JS, deployed to GitHub Pages entirely via GitHub Actions on every push',
+    ],
+    stack: ['HTML/CSS/JS', 'GitHub Actions', 'GitHub Pages', 'localStorage'],
+    url: 'https://kushagra486.github.io/anvil/',
+    repoUrl: 'https://github.com/kushagra486/anvil',
   },
 ];
 
