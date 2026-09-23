@@ -211,31 +211,31 @@ See all of these live, with working "Live" and "Code" links, in the [Projects wi
 ## 📦 All Public Repositories (auto-synced)
 
 <!-- AUTO-REPOS:START -->
-_Synced automatically from GitHub — 24 public repositories, last synced 2026-09-22 08:38 UTC._
+_Synced automatically from GitHub — 24 public repositories, last synced 2026-09-23 08:40 UTC._
 
 | Repo | Description | Language | Stars | Last Push |
 |---|---|---|---|---|
-| [BharatAi-office](https://github.com/kushagra486/BharatAi-office) | — | TypeScript | 0 | 2026-09-22 |
+| [nyaya-agent](https://github.com/kushagra486/nyaya-agent) | Open-source legal intelligence tools for the Indian IPC/CrPC/Evidence Act to BNS/BNSS/BSA transition. Zero-cost stack: Vite+React, Supabase pgvector, Groq. | HTML | 0 | 2026-09-23 |
+| [BharatAi-office](https://github.com/kushagra486/BharatAi-office) | — | TypeScript | 0 | 2026-09-23 |
+| [Smart-Budget-Assistant](https://github.com/kushagra486/Smart-Budget-Assistant) | — | TypeScript | 1 | 2026-09-22 |
 | [SWYNEX-AI-Problem-Design](https://github.com/kushagra486/SWYNEX-AI-Problem-Design) | — | — | 0 | 2026-09-22 |
+| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-09-22 |
+| [news-demo-ai](https://github.com/kushagra486/news-demo-ai) | BharatNews.ai — Live AI-Powered News Intelligence for India. Demo version. | HTML | 0 | 2026-09-22 |
+| [bharat-news-ai](https://github.com/kushagra486/bharat-news-ai) | Bharat News AI — Live AI-powered daily news intelligence with Groq, 4 news sources, Instagram-style UI | HTML | 1 | 2026-09-22 |
+| [Bharat-AI-Assistant-V1](https://github.com/kushagra486/Bharat-AI-Assistant-V1) | 🇮🇳 Bharat AI Assistant V1 — A lightweight AI chatbot powered by OpenRouter LLMs and deployed on Vercel for fast web-based AI interaction. | JavaScript | 1 | 2026-09-22 |
 | [BharatUi-Ux-Canvas](https://github.com/kushagra486/BharatUi-Ux-Canvas) | — | — | 0 | 2026-09-22 |
-| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-09-21 |
 | [Bharat-Inventory-Manager-](https://github.com/kushagra486/Bharat-Inventory-Manager-) | — | TypeScript | 0 | 2026-08-14 |
 | [anvil](https://github.com/kushagra486/anvil) | — | JavaScript | 0 | 2026-08-13 |
 | [Friday-Desk-assistant](https://github.com/kushagra486/Friday-Desk-assistant) | — | C++ | 0 | 2026-08-11 |
 | [Bharat-Inventory](https://github.com/kushagra486/Bharat-Inventory) | — | HTML | 0 | 2026-08-06 |
-| [nyaya-agent](https://github.com/kushagra486/nyaya-agent) | Open-source legal intelligence tools for the Indian IPC/CrPC/Evidence Act to BNS/BNSS/BSA transition. Zero-cost stack: Vite+React, Supabase pgvector, Groq. | HTML | 0 | 2026-08-05 |
 | [GitRep](https://github.com/kushagra486/GitRep) | AI-powered GitHub scraper and repository discovery engine — semantic search, health scoring, Groq AI chat | TypeScript | 0 | 2026-06-23 |
-| [news-demo-ai](https://github.com/kushagra486/news-demo-ai) | BharatNews.ai — Live AI-Powered News Intelligence for India. Demo version. | HTML | 0 | 2026-06-16 |
-| [bharat-news-ai](https://github.com/kushagra486/bharat-news-ai) | Bharat News AI — Live AI-powered daily news intelligence with Groq, 4 news sources, Instagram-style UI | HTML | 1 | 2026-06-16 |
 | [sentient-lens](https://github.com/kushagra486/sentient-lens) | — | HTML | 1 | 2026-04-12 |
 | [jarvis](https://github.com/kushagra486/jarvis) | — | HTML | 0 | 2026-04-12 |
 | [neon-air-paint-](https://github.com/kushagra486/neon-air-paint-) | Neon Air Draw Ultra PRO is an AI-powered creative suite that transforms your webcam into a high-fidelity 3D air-brush. Using MediaPipe hand-tracking, it eliminates the need for a mouse or keyboard, allowing you to paint glowing neon art in mid-air via intuitive gestures. | HTML | 1 | 2026-04-11 |
-| [Bharat-AI-Assistant-V1](https://github.com/kushagra486/Bharat-AI-Assistant-V1) | 🇮🇳 Bharat AI Assistant V1 — A lightweight AI chatbot powered by OpenRouter LLMs and deployed on Vercel for fast web-based AI interaction. | JavaScript | 1 | 2026-04-07 |
 | [thesis-ai](https://github.com/kushagra486/thesis-ai) | — | HTML | 0 | 2026-03-15 |
 | [resumeai](https://github.com/kushagra486/resumeai) | — | JavaScript | 1 | 2026-03-14 |
 | [visionforge-ai](https://github.com/kushagra486/visionforge-ai) | — | JavaScript | 0 | 2026-03-10 |
 | [bharat-ai-demo](https://github.com/kushagra486/bharat-ai-demo) | Bharat AI: A futuristic mobile AI chatbot inspired by Google Gemini, featuring an Indian flag logo, facial recognition, voice assistance, object recognition, emotion recognition, aerial hand gesture drawing, shadow imaging, and an LLM model switcher. · Built with Manus | TypeScript | 0 | 2026-03-06 |
-| [Smart-Budget-Assistant](https://github.com/kushagra486/Smart-Budget-Assistant) | — | TypeScript | 1 | 2025-12-07 |
 | [cybersecurity-threat-analysis](https://github.com/kushagra486/cybersecurity-threat-analysis) | — | Jupyter Notebook | 1 | 2025-11-20 |
 | [supermart-grocery-sales-analytics](https://github.com/kushagra486/supermart-grocery-sales-analytics) | — | Python | 1 | 2025-11-20 |
 | [blind-assist-bot](https://github.com/kushagra486/blind-assist-bot) | A self-moving blind assist bot using Arduino Uno with ultrasonic sensors for obstacle detection and autonomous navigation | C++ | 0 | 2025-11-18 |
