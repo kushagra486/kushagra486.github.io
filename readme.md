@@ -211,15 +211,16 @@ See all of these live, with working "Live" and "Code" links, in the [Projects wi
 ## 📦 All Public Repositories (auto-synced)
 
 <!-- AUTO-REPOS:START -->
-_Synced automatically from GitHub — 24 public repositories, last synced 2026-09-23 08:40 UTC._
+_Synced automatically from GitHub — 25 public repositories, last synced 2026-09-24 08:33 UTC._
 
 | Repo | Description | Language | Stars | Last Push |
 |---|---|---|---|---|
-| [nyaya-agent](https://github.com/kushagra486/nyaya-agent) | Open-source legal intelligence tools for the Indian IPC/CrPC/Evidence Act to BNS/BNSS/BSA transition. Zero-cost stack: Vite+React, Supabase pgvector, Groq. | HTML | 0 | 2026-09-23 |
+| [Janseva-Ai](https://github.com/kushagra486/Janseva-Ai) | — | Python | 0 | 2026-09-24 |
+| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-09-23 |
 | [BharatAi-office](https://github.com/kushagra486/BharatAi-office) | — | TypeScript | 0 | 2026-09-23 |
-| [Smart-Budget-Assistant](https://github.com/kushagra486/Smart-Budget-Assistant) | — | TypeScript | 1 | 2026-09-22 |
+| [Smart-Budget-Assistant](https://github.com/kushagra486/Smart-Budget-Assistant) | — | TypeScript | 1 | 2026-09-23 |
+| [nyaya-agent](https://github.com/kushagra486/nyaya-agent) | Open-source legal intelligence tools for the Indian IPC/CrPC/Evidence Act to BNS/BNSS/BSA transition. Zero-cost stack: Vite+React, Supabase pgvector, Groq. | HTML | 0 | 2026-09-23 |
 | [SWYNEX-AI-Problem-Design](https://github.com/kushagra486/SWYNEX-AI-Problem-Design) | — | — | 0 | 2026-09-22 |
-| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-09-22 |
 | [news-demo-ai](https://github.com/kushagra486/news-demo-ai) | BharatNews.ai — Live AI-Powered News Intelligence for India. Demo version. | HTML | 0 | 2026-09-22 |
 | [bharat-news-ai](https://github.com/kushagra486/bharat-news-ai) | Bharat News AI — Live AI-powered daily news intelligence with Groq, 4 news sources, Instagram-style UI | HTML | 1 | 2026-09-22 |
 | [Bharat-AI-Assistant-V1](https://github.com/kushagra486/Bharat-AI-Assistant-V1) | 🇮🇳 Bharat AI Assistant V1 — A lightweight AI chatbot powered by OpenRouter LLMs and deployed on Vercel for fast web-based AI interaction. | JavaScript | 1 | 2026-09-22 |
