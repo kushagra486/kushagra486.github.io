@@ -29,7 +29,7 @@ export function GamesWidget() {
   return (
     <button
       onClick={() => openWindow('games', 'Games')}
-      className="block w-full rounded-2xl border border-white/10 bg-white/5 p-4 text-left transition hover:bg-white/10"
+      className="block w-full mac-widget p-4 text-left transition hover:brightness-125"
     >
       <p className="text-xs text-white/50">Games — best scores</p>
       <div className="mt-2 grid grid-cols-2 gap-x-3 gap-y-1 text-xs text-white/80">

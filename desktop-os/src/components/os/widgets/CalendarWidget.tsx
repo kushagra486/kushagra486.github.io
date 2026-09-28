@@ -23,8 +23,8 @@ export function CalendarWidget() {
   }, []);
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-      <p className="mb-2 text-sm font-medium text-white">{monthLabel}</p>
+    <div className="mac-widget p-4">
+      <p className="mb-2 text-[13px] font-semibold uppercase tracking-wide text-[#ff453a]">{monthLabel}</p>
       <div className="grid grid-cols-7 gap-y-1 text-center text-[11px]">
         {WEEKDAYS.map((d, i) => (
           <span key={i} className="text-white/40">
@@ -35,7 +35,7 @@ export function CalendarWidget() {
           <span
             key={i}
             className={`flex h-6 w-6 items-center justify-center justify-self-center rounded-full ${
-              day === today ? 'bg-cyan-400/90 font-semibold text-black' : 'text-white/70'
+              day === today ? 'bg-[#ff453a] font-semibold text-white' : 'text-white/80'
             }`}
           >
             {day ?? ''}

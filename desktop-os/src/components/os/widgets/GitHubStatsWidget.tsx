@@ -31,7 +31,7 @@ export function GitHubStatsWidget() {
       href={profile.links.github}
       target="_blank"
       rel="noreferrer"
-      className="block rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10"
+      className="block mac-widget p-4 transition hover:brightness-125"
     >
       <p className="text-xs text-white/50">GitHub</p>
       {error && <p className="mt-2 text-sm text-white/40">Unavailable</p>}

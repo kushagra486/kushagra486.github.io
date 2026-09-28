@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDesktopStore } from '@/store/useDesktopStore';
 import { CommandPalette } from '@/components/os/CommandPalette';
 
 /** ⌘/Ctrl-K command palette, ⌘/Ctrl-` window cycling, Esc closes the focused window or the palette. */
 export function GlobalShortcuts() {
-  const [paletteOpen, setPaletteOpen] = useState(false);
+  const paletteOpen = useDesktopStore((s) => s.spotlightOpen);
+  const setPaletteOpen = useDesktopStore((s) => s.setSpotlightOpen);
   const windows = useDesktopStore((s) => s.windows);
   const focusWindow = useDesktopStore((s) => s.focusWindow);
   const closeWindow = useDesktopStore((s) => s.closeWindow);
@@ -48,7 +49,7 @@ export function GlobalShortcuts() {
 
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [paletteOpen, windows, focusWindow, closeWindow]);
+  }, [paletteOpen, setPaletteOpen, windows, focusWindow, closeWindow]);
 
   return <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />;
 }

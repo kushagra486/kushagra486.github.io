@@ -18,6 +18,10 @@ interface DesktopState {
   windows: DesktopWindow[];
   activeZIndex: number;
   activeApp: ActiveApp | null;
+  spotlightOpen: boolean;
+  widgetsOpen: boolean;
+  setSpotlightOpen: (open: boolean | ((prev: boolean) => boolean)) => void;
+  setWidgetsOpen: (open: boolean | ((prev: boolean) => boolean)) => void;
   openWindow: (id: string, title: string) => void;
   closeWindow: (id: string) => void;
   minimizeWindow: (id: string) => void;
@@ -29,6 +33,13 @@ export const useDesktopStore = create<DesktopState>((set, get) => ({
   windows: [],
   activeZIndex: 10,
   activeApp: null,
+  spotlightOpen: false,
+  widgetsOpen: false,
+
+  setSpotlightOpen: (open) =>
+    set((state) => ({ spotlightOpen: typeof open === 'function' ? open(state.spotlightOpen) : open })),
+  setWidgetsOpen: (open) =>
+    set((state) => ({ widgetsOpen: typeof open === 'function' ? open(state.widgetsOpen) : open })),
 
   openWindow: (id, title) => {
     recordAppOpen(id);
