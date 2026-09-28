@@ -1,29 +1,182 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #f5f5f7;
+
+  /* Apple system colors (dark appearance) */
+  --mac-blue: #0a84ff;
+  --mac-red: #ff5f57;
+  --mac-yellow: #febc2e;
+  --mac-green: #28c840;
+  --mac-label: rgba(255, 255, 255, 0.92);
+  --mac-secondary-label: rgba(235, 235, 245, 0.6);
+  --mac-separator: rgba(255, 255, 255, 0.1);
+
+  /* Shared spring-like easing for CSS transitions (Apple's "ease-out-quint"-ish curve) */
+  --mac-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, Menlo, var(--font-geist-mono), monospace;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* The whole app used Tailwind's cyan as its accent. Remapping the scale to Apple's
+     system blue re-themes every accent in one place instead of touching every component. */
+  --color-cyan-50: #eef6ff;
+  --color-cyan-100: #d6eaff;
+  --color-cyan-200: #a9d3ff;
+  --color-cyan-300: #6cb6ff;
+  --color-cyan-400: #409cff;
+  --color-cyan-500: #0a84ff;
+  --color-cyan-600: #0071e3;
+  --color-cyan-700: #0058b0;
+  --color-cyan-800: #00417f;
+  --color-cyan-900: #002d59;
+  --color-cyan-950: #001a36;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.003em;
 }
+
+::selection {
+  background: rgba(10, 132, 255, 0.45);
+}
+
+/* ---------- macOS materials ---------- */
+
+/* "Vibrancy" — the frosted, saturated glass used by menus, the dock, sidebars, widgets. */
+.mac-glass {
+  background: rgba(30, 30, 32, 0.55);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  backdrop-filter: blur(40px) saturate(180%);
+  border: 0.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Menus/tooltips that live inside another blurred surface can't blur what's behind that
+   surface (nested backdrop-filter only samples its backdrop root), so they need to be
+   nearly opaque on their own to read as a macOS menu. */
+.mac-menu {
+  background: rgba(38, 38, 42, 0.94);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(30px) saturate(180%);
+  border: 0.5px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.1), 0 10px 38px rgba(0, 0, 0, 0.5);
+}
+
+.mac-menubar {
+  background: rgba(20, 20, 24, 0.38);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  backdrop-filter: blur(30px) saturate(180%);
+}
+
+.mac-window {
+  background: rgba(28, 28, 30, 0.82);
+  -webkit-backdrop-filter: blur(50px) saturate(190%);
+  backdrop-filter: blur(50px) saturate(190%);
+  border: 0.5px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    inset 0 0.5px 0 rgba(255, 255, 255, 0.14),
+    0 0 0 0.5px rgba(0, 0, 0, 0.6),
+    0 24px 70px 6px rgba(0, 0, 0, 0.55);
+}
+
+.mac-window[data-focused="false"] {
+  box-shadow:
+    inset 0 0.5px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 0.5px rgba(0, 0, 0, 0.5),
+    0 12px 36px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Sonoma-style desktop widget tile. Also applied to the legacy widget markup below. */
+.mac-widget {
+  border-radius: 22px;
+  background: rgba(40, 40, 44, 0.42);
+  -webkit-backdrop-filter: blur(36px) saturate(180%);
+  backdrop-filter: blur(36px) saturate(180%);
+  border: 0.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.1), 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* App icon "squircle" — continuous-corner-ish rounded square with Big Sur depth. */
+.mac-app-icon {
+  border-radius: 22.5%;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* Thin, auto-hiding-looking scrollbars like macOS overlay scrollbars. */
+.mac-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+.mac-scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.mac-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+.mac-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- motion ---------- */
+
+@keyframes name-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Slow drifting "mesh gradient" blobs behind the wallpaper — the macOS dynamic-wallpaper feel. */
+@keyframes mac-drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(6%, 4%, 0) scale(1.12); }
+}
+@keyframes mac-drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+  50% { transform: translate3d(-5%, -6%, 0) scale(0.95); }
+}
+@keyframes mac-drift-c {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(3%, -3%, 0) rotate(8deg); }
+}
+
+/* Contribution-graph cells pop in column by column (delay set inline per column). */
+@keyframes mac-cell-in {
+  from { opacity: 0; transform: scale(0.3); }
+  to { opacity: 1; transform: scale(1); }
+}
+.mac-contrib-cell {
+  animation: mac-cell-in 420ms var(--mac-ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- document viewer ---------- */
 
 .docx-preview h1,
 .docx-preview h2,
@@ -52,11 +205,6 @@ body {
 .docx-preview th {
   border: 1px solid rgba(0, 0, 0, 0.12);
   padding: 0.3em 0.5em;
-}
-
-@keyframes name-shimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
 }
 
 /* Locks the OS to 16:9 (landscape) / 9:16 (portrait), letterboxed to fit the viewport.

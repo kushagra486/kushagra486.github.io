@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
+/** Sonoma-style clock widget: red weekday, large light numerals. */
 export function ClockWidget() {
   const [now, setNow] = useState<Date | null>(null);
 
@@ -14,18 +15,24 @@ export function ClockWidget() {
   }, []);
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <div className="mac-widget px-4 py-3.5">
       {now ? (
         <>
-          <p className="text-3xl font-semibold tabular-nums text-white">
-            {now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+          <p className="text-[12px] font-semibold uppercase tracking-wide text-[#ff453a]">
+            {now.toLocaleDateString([], { weekday: 'long' })}
           </p>
-          <p className="mt-1 text-xs text-white/50">
-            {now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
+          <p className="mt-0.5 text-[40px] font-light leading-none tracking-tight tabular-nums text-white">
+            {now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}
+            <span className="ml-1 align-top text-[15px] font-normal text-white/45">
+              {String(now.getSeconds()).padStart(2, '0')}
+            </span>
+          </p>
+          <p className="mt-1.5 text-[12px] text-white/55">
+            {now.toLocaleDateString([], { month: 'long', day: 'numeric', year: 'numeric' })}
           </p>
         </>
       ) : (
-        <p className="text-3xl font-semibold text-white/20">--:--:--</p>
+        <p className="text-[40px] font-light text-white/20">--:--</p>
       )}
     </div>
   );

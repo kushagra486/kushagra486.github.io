@@ -2,48 +2,105 @@
 
 import { usePreferences, WallpaperTheme } from '@/lib/preferences';
 
-const THEMES: Record<WallpaperTheme, { base: string; blobs: [string, string, string] }> = {
+interface Theme {
+  base: string;
+  /** Three soft color fields that slowly drift, like a macOS dynamic wallpaper. */
+  fields: [string, string, string];
+  /** Colors for the flowing "wave" ribbons layered on top. */
+  waves: [string, string];
+}
+
+const THEMES: Record<WallpaperTheme, Theme> = {
+  // Deep blues and violets.
   aurora: {
-    base: 'from-[#0a1a2e] via-[#0f2740] to-[#040810]',
-    blobs: ['bg-cyan-400/20', 'bg-blue-500/20', 'bg-purple-500/10'],
+    base: '#050a1f',
+    fields: ['#1d4ed8', '#7c3aed', '#0ea5e9'],
+    waves: ['#3b82f6', '#a855f7'],
   },
+  // Warm golden-hour tones.
   sunset: {
-    base: 'from-[#2e150a] via-[#40200f] to-[#0a0604]',
-    blobs: ['bg-orange-400/20', 'bg-pink-500/20', 'bg-red-500/10'],
+    base: '#1a0a05',
+    fields: ['#f97316', '#db2777', '#facc15'],
+    waves: ['#fb923c', '#f43f5e'],
   },
+  // Coastal greens.
   emerald: {
-    base: 'from-[#0a2e1f] via-[#0f4030] to-[#04100a]',
-    blobs: ['bg-emerald-400/20', 'bg-teal-500/20', 'bg-lime-500/10'],
+    base: '#03140f',
+    fields: ['#059669', '#0d9488', '#65a30d'],
+    waves: ['#34d399', '#2dd4bf'],
   },
+  // Dusky magenta and indigo.
   nebula: {
-    base: 'from-[#1a0a2e] via-[#271040] to-[#0a0410]',
-    blobs: ['bg-fuchsia-400/20', 'bg-purple-500/20', 'bg-indigo-500/10'],
+    base: '#12051f',
+    fields: ['#c026d3', '#4f46e5', '#db2777'],
+    waves: ['#e879f9', '#818cf8'],
   },
 };
 
 export function Wallpaper() {
   const wallpaper = usePreferences((s) => s.wallpaper);
-  const theme = THEMES[wallpaper];
+  const reducedMotion = usePreferences((s) => s.reducedMotion);
+  const t = THEMES[wallpaper];
+  const anim = (name: string, seconds: number) => (reducedMotion ? undefined : `${name} ${seconds}s ease-in-out infinite`);
 
   return (
-    <div aria-hidden="true" className={`pointer-events-none fixed inset-0 z-0 overflow-hidden bg-gradient-to-br ${theme.base}`}>
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden" style={{ background: t.base }}>
       <div
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute -left-[20%] -top-[30%] h-[90%] w-[80%] rounded-full opacity-70 blur-[90px]"
+        style={{ background: t.fields[0], animation: anim('mac-drift-a', 22) }}
+      />
+      <div
+        className="absolute -bottom-[35%] -right-[15%] h-[95%] w-[75%] rounded-full opacity-60 blur-[100px]"
+        style={{ background: t.fields[1], animation: anim('mac-drift-b', 28) }}
+      />
+      <div
+        className="absolute left-[30%] top-[35%] h-[55%] w-[45%] rounded-full opacity-40 blur-[90px]"
+        style={{ background: t.fields[2], animation: anim('mac-drift-c', 34) }}
+      />
+
+      {/* Flowing ribbons — the signature swoosh of recent macOS wallpapers. */}
+      <svg
+        className="absolute inset-0 h-full w-full opacity-60 mix-blend-screen"
+        viewBox="0 0 1600 900"
+        preserveAspectRatio="xMidYMid slice"
+        style={{ animation: anim('mac-drift-c', 40) }}
+      >
+        <defs>
+          <linearGradient id="wave-a" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stopColor={t.waves[0]} stopOpacity="0" />
+            <stop offset="0.5" stopColor={t.waves[0]} stopOpacity="0.55" />
+            <stop offset="1" stopColor={t.waves[1]} stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="wave-b" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stopColor={t.waves[1]} stopOpacity="0" />
+            <stop offset="0.45" stopColor={t.waves[1]} stopOpacity="0.45" />
+            <stop offset="1" stopColor={t.waves[0]} stopOpacity="0" />
+          </linearGradient>
+          <filter id="wave-blur">
+            <feGaussianBlur stdDeviation="18" />
+          </filter>
+        </defs>
+        <path
+          d="M-100 620 C 250 420, 520 820, 860 600 S 1400 380, 1720 560 L 1720 980 L -100 980 Z"
+          fill="url(#wave-a)"
+          filter="url(#wave-blur)"
+        />
+        <path
+          d="M-100 700 C 300 560, 600 900, 980 700 S 1450 520, 1720 700 L 1720 980 L -100 980 Z"
+          fill="url(#wave-b)"
+          filter="url(#wave-blur)"
+        />
+      </svg>
+
+      {/* Subtle film grain + vignette for depth. */}
+      <div
+        className="absolute inset-0 opacity-[0.05] mix-blend-overlay"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
         }}
       />
-      <div className={`absolute -left-24 -top-24 h-96 w-96 animate-pulse rounded-full ${theme.blobs[0]} blur-3xl`} />
-      <div
-        className={`absolute -bottom-32 -right-16 h-[28rem] w-[28rem] animate-pulse rounded-full ${theme.blobs[1]} blur-3xl`}
-        style={{ animationDelay: '1.5s' }}
-      />
-      <div
-        className={`absolute top-1/3 left-1/2 h-72 w-72 -translate-x-1/2 animate-pulse rounded-full ${theme.blobs[2]} blur-3xl`}
-        style={{ animationDelay: '3s' }}
-      />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.45)_100%)]" />
     </div>
   );
 }

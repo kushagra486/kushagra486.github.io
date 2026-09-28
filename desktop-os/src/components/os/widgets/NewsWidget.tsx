@@ -11,7 +11,7 @@ export function NewsWidget() {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+    <div className="overflow-hidden mac-widget">
       <div className="flex items-center justify-between px-4 pt-3">
         <p className="flex items-center gap-1.5 text-xs text-white/50">
           <span className="relative flex h-2 w-2">

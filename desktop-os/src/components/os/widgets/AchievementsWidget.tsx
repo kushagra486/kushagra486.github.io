@@ -19,17 +19,17 @@ export function AchievementsWidget() {
   ];
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-      <p className="text-xs text-white/50">Achievements</p>
+    <div className="mac-widget p-4">
+      <p className="text-[13px] font-semibold text-white/90">Achievements</p>
       <div className="mt-2 grid grid-cols-2 gap-2">
         {stats.map((stat) => (
           <button
             key={stat.label}
             onClick={stat.onClick}
-            className="rounded-lg bg-white/5 p-2 text-left transition hover:bg-white/10"
+            className="rounded-xl bg-white/[0.07] p-2.5 text-left transition hover:bg-white/[0.14] active:scale-[0.97]"
           >
-            <p className="text-lg font-semibold text-white">{stat.value}</p>
-            <p className="text-[10px] leading-tight text-white/50">{stat.label}</p>
+            <p className="text-[22px] font-semibold leading-none tracking-tight text-white tabular-nums">{stat.value}</p>
+            <p className="mt-1 text-[11px] leading-tight text-white/55">{stat.label}</p>
           </button>
         ))}
       </div>

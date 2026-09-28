@@ -3,10 +3,10 @@
 import { usePreferences, WallpaperTheme } from '@/lib/preferences';
 
 const WALLPAPER_OPTIONS: { id: WallpaperTheme; label: string; swatch: string }[] = [
-  { id: 'aurora', label: 'Aurora (default)', swatch: 'from-cyan-400 to-blue-600' },
-  { id: 'sunset', label: 'Sunset', swatch: 'from-orange-400 to-pink-600' },
-  { id: 'emerald', label: 'Emerald', swatch: 'from-emerald-400 to-teal-600' },
-  { id: 'nebula', label: 'Nebula', swatch: 'from-fuchsia-400 to-purple-600' },
+  { id: 'aurora', label: 'Midnight (default)', swatch: 'from-blue-600 to-violet-600' },
+  { id: 'sunset', label: 'Golden Hour', swatch: 'from-orange-500 to-pink-600' },
+  { id: 'emerald', label: 'Coastal', swatch: 'from-emerald-500 to-teal-600' },
+  { id: 'nebula', label: 'Dusk', swatch: 'from-fuchsia-500 to-indigo-600' },
 ];
 
 function Toggle({

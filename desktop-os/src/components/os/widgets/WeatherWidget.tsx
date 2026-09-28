@@ -23,7 +23,7 @@ export function WeatherWidget() {
   }, []);
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <div className="mac-widget p-4">
       <p className="text-xs text-white/50">{profile.location.split(',')[0]}</p>
       {error && <p className="mt-2 text-sm text-white/40">{error}</p>}
       {!error && !weather && <p className="mt-2 text-sm text-white/40">Loading…</p>}

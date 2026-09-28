@@ -15,7 +15,7 @@ export function VisitorBadgesWidget() {
   const unlocked = achievements?.filter((a) => a.unlocked).length ?? 0;
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <div className="mac-widget p-4">
       <div className="flex items-center justify-between">
         <p className="text-xs text-white/50">Your Badges</p>
         {achievements && <p className="text-[10px] text-white/30">{unlocked}/{achievements.length}</p>}
