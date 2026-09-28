@@ -7,6 +7,7 @@ import { CalendarWidget } from '@/components/os/widgets/CalendarWidget';
 import { WeatherWidget } from '@/components/os/widgets/WeatherWidget';
 import { GitHubStatsWidget } from '@/components/os/widgets/GitHubStatsWidget';
 import { GitHubActivityWidget } from '@/components/os/widgets/GitHubActivityWidget';
+import { GitHubContributionsWidget } from '@/components/os/widgets/GitHubContributionsWidget';
 import { AchievementsWidget } from '@/components/os/widgets/AchievementsWidget';
 import { GamesWidget } from '@/components/os/widgets/GamesWidget';
 import { NewsWidget } from '@/components/os/widgets/NewsWidget';
@@ -60,6 +61,7 @@ export function WidgetsPanel({ open, onClose }: { open: boolean; onClose: () => 
             </div>
             <Stagger>
               <ClockWidget />
+              <GitHubContributionsWidget />
               <WeatherWidget />
               <CalendarWidget />
               <NewsWidget />
