@@ -51,6 +51,7 @@ export const liveApps: LiveApp[] = [
   { slug: 'sentient-lens', name: 'SENTIENT LENS', emoji: '👁️', url: 'https://kushagra486.github.io/sentient-lens/' },
   { slug: 'neon-air-draw', name: 'Neon Air Draw', emoji: '🖐️', url: 'https://kushagra486.github.io/neon-air-paint-/' },
   { slug: 'anvil', name: 'Anvil', emoji: '⚒️', url: 'https://kushagra486.github.io/anvil/' },
+  { slug: 'bharat-ai-office', name: 'Bharat AI Office', emoji: '🏢', url: 'https://bharat-ai-office-frontend.vercel.app' },
 ];
 
 export const skills = {
@@ -357,6 +358,21 @@ export const projects: Project[] = [
     stack: ['HTML/CSS/JS', 'GitHub Actions', 'GitHub Pages', 'localStorage'],
     url: 'https://kushagra486.github.io/anvil/',
     repoUrl: 'https://github.com/kushagra486/anvil',
+  },
+  {
+    slug: 'bharat-ai-office',
+    emoji: '🏢',
+    name: 'Bharat AI Office',
+    tagline: 'A Brief Becomes a Fully Staffed AI Office',
+    description: [
+      'One orchestrator (Nova) and 10 specialist AI employees — architect, backend, frontend, design, QA, data, security, docs, DevOps, coordination — decompose a project brief into a task graph and work it in parallel with real file/shell tool access, visualized as a live 3D office floor.',
+      'Each employee runs its own tool-use loop, sandboxed to its own working directory, with escalation triage and a QA pass once all tasks complete',
+      '11 concurrent agent seats spread across 3 LLM providers (NVIDIA NIM, Groq, OpenRouter) with automatic fallback, so no single rate limit bottlenecks the office',
+      'Serverless frontend (Vercel/Netlify) + managed Postgres/Realtime (Supabase) + one persistent Railway worker for the one thing serverless can\'t do — real git commits',
+    ],
+    stack: ['Next.js', 'Three.js', 'Supabase', 'Railway', 'NVIDIA NIM', 'Groq', 'OpenRouter'],
+    url: 'https://bharat-ai-office-frontend.vercel.app',
+    repoUrl: 'https://github.com/kushagra486/BharatAi-office',
   },
 ];
 
