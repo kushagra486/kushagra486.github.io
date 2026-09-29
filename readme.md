@@ -211,14 +211,15 @@ See all of these live, with working "Live" and "Code" links, in the [Projects wi
 ## 📦 All Public Repositories (auto-synced)
 
 <!-- AUTO-REPOS:START -->
-_Synced automatically from GitHub — 26 public repositories, last synced 2026-09-28 09:55 UTC._
+_Synced automatically from GitHub — 27 public repositories, last synced 2026-09-29 09:56 UTC._
 
 | Repo | Description | Language | Stars | Last Push |
 |---|---|---|---|---|
-| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-09-27 |
+| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-09-28 |
+| [Janseva-Ai](https://github.com/kushagra486/Janseva-Ai) | — | Python | 0 | 2026-09-28 |
+| [claude-ai-skills](https://github.com/kushagra486/claude-ai-skills) | — | Python | 0 | 2026-09-28 |
+| [BharatAi-office](https://github.com/kushagra486/BharatAi-office) | — | TypeScript | 0 | 2026-09-28 |
 | [Nova](https://github.com/kushagra486/Nova) | — | TypeScript | 0 | 2026-09-25 |
-| [Janseva-Ai](https://github.com/kushagra486/Janseva-Ai) | — | Python | 0 | 2026-09-24 |
-| [BharatAi-office](https://github.com/kushagra486/BharatAi-office) | — | TypeScript | 0 | 2026-09-23 |
 | [Smart-Budget-Assistant](https://github.com/kushagra486/Smart-Budget-Assistant) | — | TypeScript | 1 | 2026-09-23 |
 | [nyaya-agent](https://github.com/kushagra486/nyaya-agent) | Open-source legal intelligence tools for the Indian IPC/CrPC/Evidence Act to BNS/BNSS/BSA transition. Zero-cost stack: Vite+React, Supabase pgvector, Groq. | HTML | 0 | 2026-09-23 |
 | [SWYNEX-AI-Problem-Design](https://github.com/kushagra486/SWYNEX-AI-Problem-Design) | — | — | 0 | 2026-09-22 |
