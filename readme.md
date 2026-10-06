@@ -211,11 +211,12 @@ See all of these live, with working "Live" and "Code" links, in the [Projects wi
 ## 📦 All Public Repositories (auto-synced)
 
 <!-- AUTO-REPOS:START -->
-_Synced automatically from GitHub — 27 public repositories, last synced 2026-10-05 10:35 UTC._
+_Synced automatically from GitHub — 27 public repositories, last synced 2026-10-06 10:28 UTC._
 
 | Repo | Description | Language | Stars | Last Push |
 |---|---|---|---|---|
-| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-10-04 |
+| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-10-05 |
+| [BharatUi-Ux-Canvas](https://github.com/kushagra486/BharatUi-Ux-Canvas) | — | — | 0 | 2026-10-05 |
 | [Janseva-Ai](https://github.com/kushagra486/Janseva-Ai) | — | Python | 0 | 2026-09-28 |
 | [claude-ai-skills](https://github.com/kushagra486/claude-ai-skills) | — | Python | 0 | 2026-09-28 |
 | [BharatAi-office](https://github.com/kushagra486/BharatAi-office) | — | TypeScript | 0 | 2026-09-28 |
@@ -226,7 +227,6 @@ _Synced automatically from GitHub — 27 public repositories, last synced 2026-1
 | [news-demo-ai](https://github.com/kushagra486/news-demo-ai) | BharatNews.ai — Live AI-Powered News Intelligence for India. Demo version. | HTML | 0 | 2026-09-22 |
 | [bharat-news-ai](https://github.com/kushagra486/bharat-news-ai) | Bharat News AI — Live AI-powered daily news intelligence with Groq, 4 news sources, Instagram-style UI | HTML | 1 | 2026-09-22 |
 | [Bharat-AI-Assistant-V1](https://github.com/kushagra486/Bharat-AI-Assistant-V1) | 🇮🇳 Bharat AI Assistant V1 — A lightweight AI chatbot powered by OpenRouter LLMs and deployed on Vercel for fast web-based AI interaction. | JavaScript | 1 | 2026-09-22 |
-| [BharatUi-Ux-Canvas](https://github.com/kushagra486/BharatUi-Ux-Canvas) | — | — | 0 | 2026-09-22 |
 | [Bharat-Inventory-Manager-](https://github.com/kushagra486/Bharat-Inventory-Manager-) | — | TypeScript | 0 | 2026-08-14 |
 | [anvil](https://github.com/kushagra486/anvil) | — | JavaScript | 0 | 2026-08-13 |
 | [Friday-Desk-assistant](https://github.com/kushagra486/Friday-Desk-assistant) | — | C++ | 0 | 2026-08-11 |
