@@ -42,12 +42,12 @@ export function WidgetsPanel({ open, onClose }: { open: boolean; onClose: () => 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[150] bg-black/10"
+            className="fixed inset-0 z-[150] bg-black/10 max-sm:bg-black/35 max-sm:backdrop-blur-2xl"
           />
           <motion.aside
             aria-label="Notification Center"
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
-            className="mac-scroll fixed bottom-[84px] right-2 top-9 z-[160] w-[min(calc(100%-1rem),20rem)] space-y-2.5 overflow-y-auto pb-2 pr-1"
+            className="mac-scroll fixed bottom-[84px] right-2 top-12 z-[160] max-sm:bottom-6 max-sm:left-3 max-sm:right-3 sm:top-9 sm:w-[min(calc(100%-1rem),20rem)] space-y-2.5 overflow-y-auto pb-2 pr-1"
           >
             <div className="flex items-center justify-between px-1 pb-0.5">
               <p className="text-[13px] font-semibold text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]">Widgets</p>

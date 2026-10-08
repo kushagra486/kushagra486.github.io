@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://kushagra486.github.io/",
+      "permanent": false
+    },
+    {
+      "source": "/:path((?!api(?:/|$)).+)",
+      "destination": "https://kushagra486.github.io/",
+      "permanent": false
+    }
+  ]
+}

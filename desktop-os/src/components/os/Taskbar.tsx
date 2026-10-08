@@ -149,7 +149,7 @@ export function Taskbar({ apps }: { apps: readonly DockApp[] }) {
           launch(app);
         }}
       />
-      <nav aria-label="Dock" className="fixed inset-x-0 bottom-1.5 z-50 flex justify-center px-2">
+      <nav aria-label="Dock" className="fixed inset-x-0 bottom-1.5 z-50 hidden justify-center px-2 sm:flex">
         <div
           onMouseMove={(e) => mouseX.set(e.clientX)}
           onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}
