@@ -2,10 +2,11 @@
 
 import { motion, useDragControls, useMotionValue, useScroll, useTransform } from 'framer-motion';
 import { CSSProperties, PointerEvent as ReactPointerEvent, ReactNode, RefObject, useRef, useState } from 'react';
-import { Maximize2, Minimize2, Minus, X } from 'lucide-react';
+import { ChevronLeft, Maximize2, Minimize2, Minus, X } from 'lucide-react';
 import { WindowScrollContext } from '@/components/os/Reveal';
 import { useDesktopStore } from '@/store/useDesktopStore';
 import { sound } from '@/lib/sound';
+import { useIsMobile } from '@/lib/useIsMobile';
 
 interface WindowManagerProps {
   id: string;
@@ -34,6 +35,8 @@ export function WindowManager({ id, title, zIndex, isMinimized, isFocused, const
   const closeWindow = useDesktopStore((s) => s.closeWindow);
   const minimizeWindow = useDesktopStore((s) => s.minimizeWindow);
   const focusWindow = useDesktopStore((s) => s.focusWindow);
+  // Below `sm` apps run full-screen like iOS: no dragging, a nav bar and a home indicator.
+  const isMobile = useIsMobile();
 
   // Cascade new windows like macOS instead of stacking them exactly. This is the motion
   // values' *initial* value — never `.set()` them later (see toggleMaximize).
@@ -50,6 +53,11 @@ export function WindowManager({ id, title, zIndex, isMinimized, isFocused, const
   const { scrollY, scrollYProgress } = useScroll({ container: contentRef });
   // macOS only draws the toolbar hairline once content has scrolled underneath it.
   const hairline = useTransform(scrollY, [0, 12], [0, 1]);
+
+  function goHome() {
+    sound.click();
+    minimizeWindow(id);
+  }
 
   function containerBounds() {
     const el = constraintsRef.current;
@@ -103,7 +111,7 @@ export function WindowManager({ id, title, zIndex, isMinimized, isFocused, const
 
   return (
     <motion.div
-      drag
+      drag={!isMobile}
       dragListener={false}
       dragControls={dragControls}
       dragConstraints={constraintsRef}
@@ -133,11 +141,29 @@ export function WindowManager({ id, title, zIndex, isMinimized, isFocused, const
         transformOrigin: isMinimized ? '50% 130%' : '50% 50%',
         ...({ '--win-w': `${size.width}px`, '--win-h': `${size.height}px` } as CSSProperties),
       }}
-      className="mac-window pointer-events-auto absolute inset-x-2 top-9 bottom-[74px] overflow-hidden rounded-[12px] sm:inset-auto sm:top-24 sm:left-24 sm:[height:var(--win-h)] sm:[width:var(--win-w)]"
+      className="mac-window pointer-events-auto absolute inset-0 flex flex-col overflow-hidden pt-11 max-sm:!rounded-none max-sm:!border-0 max-sm:!bg-black max-sm:!shadow-none sm:inset-auto sm:top-24 sm:left-24 sm:block sm:rounded-[12px] sm:pt-0 sm:[height:var(--win-h)] sm:[width:var(--win-w)]"
     >
+      {/* iOS navigation bar (mobile). */}
+      <div className="relative flex h-11 shrink-0 items-center justify-center px-2 sm:hidden">
+        <button
+          type="button"
+          onClick={goHome}
+          className="absolute left-1 flex items-center rounded-lg py-1 pl-0.5 pr-2 text-[17px] text-[#0a84ff] active:opacity-40"
+        >
+          <ChevronLeft className="h-6 w-6" strokeWidth={2.4} />
+          Home
+        </button>
+        <span className="max-w-[52%] truncate text-[17px] font-semibold text-white">{title}</span>
+        <motion.div style={{ opacity: hairline }} className="absolute inset-x-0 bottom-0 h-px bg-white/15" />
+        <motion.div
+          style={{ scaleX: scrollYProgress }}
+          className="absolute inset-x-0 bottom-0 h-[2px] origin-left bg-gradient-to-r from-[#0a84ff] to-[#5ac8fa]"
+        />
+      </div>
+
       <div
         onPointerDown={(e) => dragControls.start(e)}
-        className="relative flex h-[38px] cursor-default select-none items-center px-3 active:cursor-grabbing"
+        className="relative hidden h-[38px] cursor-default select-none items-center px-3 active:cursor-grabbing sm:flex"
       >
         {/* Traffic lights. Pointer-down is stopped here so a quick double-click on a light can
             never fire dragControls.start twice — that combination corrupts framer's drag state. */}
@@ -194,10 +220,24 @@ export function WindowManager({ id, title, zIndex, isMinimized, isFocused, const
         />
       </div>
       <WindowScrollContext.Provider value={contentRef}>
-        <div ref={contentRef} className="mac-scroll relative h-[calc(100%-38px)] overflow-auto p-4 text-white/90">
+        <div
+          ref={contentRef}
+          className="mac-scroll relative min-h-0 flex-1 overflow-auto px-4 pb-10 pt-3 text-white/90 sm:h-[calc(100%-38px)] sm:flex-none sm:p-4"
+        >
           {children}
         </div>
       </WindowScrollContext.Provider>
+
+      {/* iOS home indicator: tap or swipe up to go back to the home screen. */}
+      <motion.button
+        type="button"
+        aria-label="Go to home screen"
+        onClick={goHome}
+        onPanEnd={(_, info) => info.offset.y < -20 && goHome()}
+        className="absolute inset-x-0 bottom-0 flex h-7 touch-none items-end justify-center pb-2 sm:hidden"
+      >
+        <span className="h-[5px] w-[134px] rounded-full bg-white/85" />
+      </motion.button>
 
       <div
         onPointerDown={handleResizeStart}

@@ -21,6 +21,7 @@ const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   title: "Kushagra OS — Desktop Portfolio",
   description:
     "Kushagra Gupta's interactive desktop-OS-style portfolio — 15+ live AI/ML projects, an AI assistant, and a working desktop environment in the browser.",

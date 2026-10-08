@@ -188,7 +188,7 @@ export function MenuBar() {
   return (
     <div
       ref={barRef}
-      className="mac-menubar fixed inset-x-0 top-0 z-50 flex h-7 items-center justify-between px-1.5 text-white/90 [text-shadow:0_0.5px_1px_rgba(0,0,0,0.25)] sm:px-2.5"
+      className="mac-menubar fixed inset-x-0 top-0 z-50 hidden h-7 items-center justify-between px-1.5 text-white/90 [text-shadow:0_0.5px_1px_rgba(0,0,0,0.25)] sm:flex sm:px-2.5"
     >
       <div className="flex min-w-0 items-center gap-0.5">
         <Menu

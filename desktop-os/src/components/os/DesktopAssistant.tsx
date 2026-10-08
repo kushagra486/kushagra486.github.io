@@ -60,7 +60,7 @@ export function DesktopAssistant() {
 
   return (
     <>
-      <div className="pointer-events-none fixed right-2 top-9 z-40 w-[min(calc(100%-1rem),22rem)]" aria-live="polite">
+      <div className="pointer-events-none fixed inset-x-2 top-12 z-40 sm:inset-x-auto sm:right-2 sm:top-9 sm:w-[22rem]" aria-live="polite">
         <AnimatePresence mode="wait">
           {hint && (
             <motion.div
@@ -97,7 +97,7 @@ export function DesktopAssistant() {
         </AnimatePresence>
       </div>
 
-      <div className="pointer-events-auto fixed bottom-24 right-4 z-[15] sm:right-6">
+      <div className="pointer-events-auto fixed bottom-24 right-6 z-[15] hidden sm:block">
         <motion.button
           onClick={openAssistant}
           aria-label="Open AI Assistant"

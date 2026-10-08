@@ -15,6 +15,9 @@ import { DesktopHero } from '@/components/os/DesktopHero';
 import { MenuBar } from '@/components/os/MenuBar';
 import { GlobalShortcuts } from '@/components/os/GlobalShortcuts';
 import { Screensaver } from '@/components/os/Screensaver';
+import { StatusBar } from '@/components/ios/StatusBar';
+import { HomeScreen } from '@/components/ios/HomeScreen';
+import { IOSDock } from '@/components/ios/IOSDock';
 import { APPS, WINDOW_ONLY_APPS } from '@/lib/apps';
 import { useDesktopStore } from '@/store/useDesktopStore';
 import { usePreferences } from '@/lib/preferences';
@@ -48,18 +51,11 @@ export default function Home() {
           <Wallpaper />
           <DesktopHero />
           <MenuBar />
+          <StatusBar />
 
-          {/* Mobile: a simple wrapping row grid. Desktop: a height-bounded column that wraps into
-              new columns once it runs out of vertical room — like a real OS icon grid — instead
-              of a single column that could overflow past the bottom of the screen. */}
-          <motion.div
-            variants={iconGrid}
-            initial="hidden"
-            animate={booted ? 'show' : 'hidden'}
-            className="relative z-10 flex flex-row flex-wrap justify-center gap-0.5 p-2 pt-9 sm:hidden"
-          >
-            {icons}
-          </motion.div>
+          {/* Mobile gets an iOS home screen; desktop a height-bounded icon column that wraps into
+              new columns once it runs out of vertical room, like a real macOS desktop. */}
+          <HomeScreen booted={booted} />
           <motion.div
             variants={iconGrid}
             initial="hidden"
@@ -98,6 +94,7 @@ export default function Home() {
           <WidgetsPanel open={widgetsOpen} onClose={() => setWidgetsOpen(false)} />
 
           <Taskbar apps={APPS} />
+          <IOSDock booted={booted} />
 
           <GlobalShortcuts />
           <Screensaver />
