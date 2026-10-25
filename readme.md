@@ -211,14 +211,14 @@ See all of these live, with working "Live" and "Code" links, in the [Projects wi
 ## 📦 All Public Repositories (auto-synced)
 
 <!-- AUTO-REPOS:START -->
-_Synced automatically from GitHub — 30 public repositories, last synced 2026-10-24 08:13 UTC._
+_Synced automatically from GitHub — 30 public repositories, last synced 2026-10-25 08:31 UTC._
 
 | Repo | Description | Language | Stars | Last Push |
 |---|---|---|---|---|
+| [raspberrypi-dashboard-server](https://github.com/kushagra486/raspberrypi-dashboard-server) | — | — | 0 | 2026-10-25 |
+| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-10-24 |
 | [data-detective-Reimagine](https://github.com/kushagra486/data-detective-Reimagine) | — | JavaScript | 0 | 2026-10-23 |
-| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-10-23 |
 | [SWYNEX-AI-Problem-Design](https://github.com/kushagra486/SWYNEX-AI-Problem-Design) | — | — | 0 | 2026-10-14 |
-| [raspberrypi-dashboard-server](https://github.com/kushagra486/raspberrypi-dashboard-server) | — | — | 0 | 2026-10-10 |
 | [Janseva-Ai](https://github.com/kushagra486/Janseva-Ai) | — | TypeScript | 0 | 2026-10-08 |
 | [SWYNEX-Intelligent-Feature](https://github.com/kushagra486/SWYNEX-Intelligent-Feature) | — | Python | 0 | 2026-10-08 |
 | [BharatUi-Ux-Canvas](https://github.com/kushagra486/BharatUi-Ux-Canvas) | — | — | 0 | 2026-10-05 |
