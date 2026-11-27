@@ -211,12 +211,12 @@ See all of these live, with working "Live" and "Code" links, in the [Projects wi
 ## 📦 All Public Repositories (auto-synced)
 
 <!-- AUTO-REPOS:START -->
-_Synced automatically from GitHub — 33 public repositories, last synced 2026-11-26 12:47 UTC._
+_Synced automatically from GitHub — 33 public repositories, last synced 2026-11-27 12:40 UTC._
 
 | Repo | Description | Language | Stars | Last Push |
 |---|---|---|---|---|
+| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-11-26 |
 | [claude-ai-skills](https://github.com/kushagra486/claude-ai-skills) | — | Python | 0 | 2026-11-25 |
-| [github-activity-bot](https://github.com/kushagra486/github-activity-bot) | 🤖 Automated daily GitHub activity bot — commits, README updates, issue rotation & repo starring | — | 1 | 2026-11-25 |
 | [Sudha-Vatika-](https://github.com/kushagra486/Sudha-Vatika-) | — | TypeScript | 1 | 2026-11-20 |
 | [SENSEX-AI-](https://github.com/kushagra486/SENSEX-AI-) | — | Python | 0 | 2026-11-14 |
 | [raspberrypi-dashboard-server](https://github.com/kushagra486/raspberrypi-dashboard-server) | — | HTML | 0 | 2026-11-13 |
